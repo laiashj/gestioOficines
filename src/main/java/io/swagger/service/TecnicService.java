@@ -6,7 +6,7 @@ import io.swagger.model.Tecnic;
 
 import org.springframework.stereotype.Service;
 
-@Service
+
 public class TecnicService {
 
     private List<Tecnic> tecnics;
@@ -30,6 +30,7 @@ public class TecnicService {
     public Tecnic getTecnic(int index) {
         return tecnics.get(index);
     }
+    
     public List<Tecnic> getTecnicsByNom(String nom) {
 	List<Tecnic> t=getTecnics();
 	for(Tecnic tec: t) {

@@ -1,5 +1,12 @@
 package io.swagger.dto;
 
-public class TecnicDTO {
+import org.springframework.data.repository.CrudRepository;
+
+import io.swagger.model.Tecnic;
+
+public interface TecnicDTO extends CrudRepository<Tecnic, String>{
+
+    @Override
+    Tecnic findOne(String id);
 
 }

@@ -3,49 +3,59 @@ package io.swagger.api;
 import io.swagger.model.Tecnic;
 import io.swagger.service.TecnicService;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.swagger.annotations.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-02-26T14:49:25.168Z")
+//@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-02-26T14:49:25.168Z")
 
-@Controller
-public class TecnicApiController implements TecnicApi {
+@RestController
+public class TecnicApiController {
 
-    private static final Logger log = LoggerFactory.getLogger(TecnicApiController.class);
-
-    private final ObjectMapper objectMapper;
-
-    private final HttpServletRequest request;
-    
     @Autowired
-    private TecnicService serveiTecnics;
+    private TecnicApi tecnicRepository;
 
-    @org.springframework.beans.factory.annotation.Autowired
-    public TecnicApiController(ObjectMapper objectMapper, HttpServletRequest request) {
-        this.objectMapper = objectMapper;
-        this.request = request;
-    }
-
+   @RequestMapping(method=RequestMethod.GET, value="/tecnics")
+   public Iterable<Tecnic> tecnic(){
+       return tecnicRepository.findAll();
+   }
+   @RequestMapping(method=RequestMethod.POST, value="/tecnics")
+   public Tecnic save(@RequestBody Tecnic tecnic) {
+       tecnicRepository.save(tecnic);
+       return tecnic;
+   }
+   @RequestMapping(method=RequestMethod.GET, value="/tecnics/{id}")
+   public Tecnic show(@PathVariable String id) {
+       return tecnicRepository.findOne(id);
+   }
+   @RequestMapping(method=RequestMethod.PUT, value="/tecnics/{id}")
+   public Tecnic update(@PathVariable String id, @RequestBody Tecnic tecnic) {
+       Tecnic t= tecnicRepository.findOne(id);
+       if(tecnic.getNomCognom()!= null) {
+	   t.setNomCognom(tecnic.getNomCognom());}
+       if(tecnic.getEstat()!= null) {
+	   t.setEstat(tecnic.getEstat());
+       }
+       if(tecnic.getDataAlta()!= null) {
+	   t.setDataAlta(tecnic.getDataAlta());
+       }
+       tecnicRepository.save(t);
+       return tecnic;
+   }
+   /*
     public ResponseEntity<Boolean> addTecnic(@ApiParam(value = "Instancia de tecnic afegit"  )  @Valid @RequestBody Tecnic objecteTecnic) {
         String accept = request.getHeader("Accept");
-        serveiTecnics.addTecnic(objecteTecnic);
+        tecnicRepository.addTecnic(objecteTecnic);
         return new ResponseEntity<>(true,HttpStatus.NOT_IMPLEMENTED);
     }
 
@@ -53,7 +63,7 @@ public class TecnicApiController implements TecnicApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<List<Tecnic>>(serveiTecnics.getTecnicsByNom(nom),/*objectMapper.readValue("[ {  \"projecte\" : {    \"color\" : \"#42f4ce\",    \"descripcio\" : \"Projecte Balearia\",    \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",    \"idProjecte\" : 11,    \"nom\" : \"Balearia\",    \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"  },  \"lloc\" : {    \"habilitat\" : true,    \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",    \"toma\" : 92,    \"idLloc\" : 222,    \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"  },  \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",  \"estat\" : \"noAssignat\",  \"idTecnic\" : 600985,  \"nomCognom\" : \"Ramona Flowers\",  \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"}, {  \"projecte\" : {    \"color\" : \"#42f4ce\",    \"descripcio\" : \"Projecte Balearia\",    \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",    \"idProjecte\" : 11,    \"nom\" : \"Balearia\",    \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"  },  \"lloc\" : {    \"habilitat\" : true,    \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",    \"toma\" : 92,    \"idLloc\" : 222,    \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"  },  \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",  \"estat\" : \"noAssignat\",  \"idTecnic\" : 600985,  \"nomCognom\" : \"Ramona Flowers\",  \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"} ]", List.class),*/ HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<List<Tecnic>>(serveiTecnics.getTecnicsByNom(nom),objectMapper.readValue("[ {  \"projecte\" : {    \"color\" : \"#42f4ce\",    \"descripcio\" : \"Projecte Balearia\",    \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",    \"idProjecte\" : 11,    \"nom\" : \"Balearia\",    \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"  },  \"lloc\" : {    \"habilitat\" : true,    \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",    \"toma\" : 92,    \"idLloc\" : 222,    \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"  },  \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",  \"estat\" : \"noAssignat\",  \"idTecnic\" : 600985,  \"nomCognom\" : \"Ramona Flowers\",  \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"}, {  \"projecte\" : {    \"color\" : \"#42f4ce\",    \"descripcio\" : \"Projecte Balearia\",    \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",    \"idProjecte\" : 11,    \"nom\" : \"Balearia\",    \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"  },  \"lloc\" : {    \"habilitat\" : true,    \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",    \"toma\" : 92,    \"idLloc\" : 222,    \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"  },  \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",  \"estat\" : \"noAssignat\",  \"idTecnic\" : 600985,  \"nomCognom\" : \"Ramona Flowers\",  \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<List<Tecnic>>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -70,7 +80,7 @@ public class TecnicApiController implements TecnicApi {
                 return new ResponseEntity<List<Tecnic>>(objectMapper.readValue("[ {  \"projecte\" : {    \"color\" : \"#42f4ce\",    \"descripcio\" : \"Projecte Balearia\",    \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",    \"idProjecte\" : 11,    \"nom\" : \"Balearia\",    \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"  },  \"lloc\" : {    \"habilitat\" : true,    \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",    \"toma\" : 92,    \"idLloc\" : 222,    \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"  },  \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",  \"estat\" : \"noAssignat\",  \"idTecnic\" : 600985,  \"nomCognom\" : \"Ramona Flowers\",  \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"}, {  \"projecte\" : {    \"color\" : \"#42f4ce\",    \"descripcio\" : \"Projecte Balearia\",    \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",    \"idProjecte\" : 11,    \"nom\" : \"Balearia\",    \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"  },  \"lloc\" : {    \"habilitat\" : true,    \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",    \"toma\" : 92,    \"idLloc\" : 222,    \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"  },  \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",  \"estat\" : \"noAssignat\",  \"idTecnic\" : 600985,  \"nomCognom\" : \"Ramona Flowers\",  \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
-                return new ResponseEntity<List<Tecnic>>(serveiTecnics.getTecnicsByStatus(status),HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity<List<Tecnic>>(tecnicRepository.getTecnicsByStatus(status),HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
 
@@ -88,7 +98,7 @@ public class TecnicApiController implements TecnicApi {
             }
         }
 
-        return new ResponseEntity<Tecnic>(serveiTecnics.getTecnic(idTecnic),HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<Tecnic>(tecnicRepository.getTecnic(idTecnic),HttpStatus.NOT_IMPLEMENTED);
     }
 
     public ResponseEntity<List<Tecnic>> getTecnics() {
@@ -102,13 +112,18 @@ public class TecnicApiController implements TecnicApi {
             }
         }
 
-        return new ResponseEntity<List<Tecnic>>(serveiTecnics.getTecnics(),HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<List<Tecnic>>(tecnicRepository.getTecnics(),HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<Boolean> updateTecnic(@ApiParam(value = "Objecte Tecnic que sha de modificar" ,required=true ),@PathVariable("index") int index,  @Valid @RequestBody Tecnic body) {
+    public ResponseEntity<Boolean> updateTecnic(@ApiParam(value = "Objecte Tecnic que sha de modificar" ,required=true )@PathVariable("index") int index,  @Valid @RequestBody Tecnic body) {
         String accept = request.getHeader("Accept");
         serveiTecnics.updateTecnic(index, body);
         return new ResponseEntity<>(true,HttpStatus.NOT_IMPLEMENTED);
     }
-
+*/
+   
 }
+
+
+
+    

@@ -1,45 +1,46 @@
 package io.swagger.model;
 
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import io.swagger.model.Lloc;
-import io.swagger.model.Projecte;
-import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 /**
  * Tecnic
  */
-@Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-02-26T14:49:25.168Z")
+//@Validated
+//@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-02-26T14:49:25.168Z")
 
+@Document(collection="tecnic")
 public class Tecnic   {
-  @JsonProperty("idTecnic")
-  private Integer idTecnic = null;
-
-  @JsonProperty("nomCognom")
+    @Id
+  private ObjectId idTecnic = null;
   private String nomCognom = null;
-
-  @JsonProperty("estat")
   private String estat = "noAssignat";
-
-  @JsonProperty("dataAlta")
   private String dataAlta = null;
-
-  @JsonProperty("dataBaixa")
   private String dataBaixa = "null";
+  private String projecte = null;
+  private String lloc = null;
 
-  @JsonProperty("projecte")
-  private Projecte projecte = null;
+  public Tecnic () {
+      
+  }
+  
+  
+  public Tecnic(ObjectId idTecnic, String nomCognom, String estat, String dataAlta, String dataBaixa, String projecte,
+	  String lloc) {
+    super();
+    this.idTecnic = idTecnic;
+    this.nomCognom = nomCognom;
+    this.estat = estat;
+    this.dataAlta = dataAlta;
+    this.dataBaixa = dataBaixa;
+    this.projecte = projecte;
+    this.lloc = lloc;
+}
 
-  @JsonProperty("lloc")
-  private Lloc lloc = null;
 
-  public Tecnic idTecnic(Integer idTecnic) {
+public Tecnic idTecnic(ObjectId idTecnic) {
     this.idTecnic = idTecnic;
     return this;
   }
@@ -48,15 +49,15 @@ public class Tecnic   {
    * Get idTecnic
    * @return idTecnic
   **/
-  @ApiModelProperty(example = "600985", required = true, value = "")
-  @NotNull
+ // @ApiModelProperty(example = "600985", required = true, value = "")
+  //@NotNull
 
 
-  public Integer getIdTecnic() {
+  public ObjectId getIdTecnic() {
     return idTecnic;
   }
 
-  public void setIdTecnic(Integer idTecnic) {
+  public void setIdTecnic(ObjectId idTecnic) {
     this.idTecnic = idTecnic;
   }
 
@@ -69,8 +70,8 @@ public class Tecnic   {
    * Get nomCognom
    * @return nomCognom
   **/
-  @ApiModelProperty(example = "Ramona Flowers", required = true, value = "")
-  @NotNull
+  //@ApiModelProperty(example = "Ramona Flowers", required = true, value = "")
+  //@NotNull
 
 
   public String getNomCognom() {
@@ -90,7 +91,7 @@ public class Tecnic   {
    * Get estat
    * @return estat
   **/
-  @ApiModelProperty(example = "noAssignat", value = "")
+  //@ApiModelProperty(example = "noAssignat", value = "")
 
 
   public String getEstat() {
@@ -110,8 +111,8 @@ public class Tecnic   {
    * Get dataAlta
    * @return dataAlta
   **/
-  @ApiModelProperty(example = "2016-08-29T09:12:33.001Z", required = true, value = "")
-  @NotNull
+  //@ApiModelProperty(example = "2016-08-29T09:12:33.001Z", required = true, value = "")
+  //@NotNull
 
 
   public String getDataAlta() {
@@ -131,7 +132,7 @@ public class Tecnic   {
    * Get dataBaixa
    * @return dataBaixa
   **/
-  @ApiModelProperty(example = "2016-08-29T09:12:33.001Z", value = "")
+  //@ApiModelProperty(example = "2016-08-29T09:12:33.001Z", value = "")
 
 
   public String getDataBaixa() {
@@ -142,7 +143,7 @@ public class Tecnic   {
     this.dataBaixa = dataBaixa;
   }
 
-  public Tecnic projecte(Projecte projecte) {
+  public Tecnic projecte(String projecte) {
     this.projecte = projecte;
     return this;
   }
@@ -151,19 +152,19 @@ public class Tecnic   {
    * Get projecte
    * @return projecte
   **/
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
 
-  @Valid
+  //@Valid
 
-  public Projecte getProjecte() {
+  public String getProjecte() {
     return projecte;
   }
 
-  public void setProjecte(Projecte projecte) {
+  public void setProjecte(String projecte) {
     this.projecte = projecte;
   }
 
-  public Tecnic lloc(Lloc lloc) {
+  public Tecnic lloc(String lloc) {
     this.lloc = lloc;
     return this;
   }
@@ -172,15 +173,15 @@ public class Tecnic   {
    * Get lloc
    * @return lloc
   **/
-  @ApiModelProperty(value = "")
+  //@ApiModelProperty(value = "")
 
-  @Valid
+  //@Valid
 
-  public Lloc getLloc() {
+  public String getLloc() {
     return lloc;
   }
 
-  public void setLloc(Lloc lloc) {
+  public void setLloc(String lloc) {
     this.lloc = lloc;
   }
 

@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: swagger-spring
 Implementation-Version: 1.0.0
-Built-By: 6000990
+Built-By: 6000989
 Implementation-Vendor-Id: io.swagger
-Build-Jdk: 1.8.0_65
+Build-Jdk: 1.8.0_144
 Implementation-URL: http://projects.spring.io/spring-boot/swagger-spri
  ng/
 Created-By: Maven Integration for Eclipse
