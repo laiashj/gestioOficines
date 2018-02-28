@@ -18,7 +18,7 @@ public class Tecnic   {
   private String nomCognom = null;
   private String estat = "noAssignat";
   private String dataAlta = null;
-  private String dataBaixa = "null";
+  private String dataBaixa = null;
   private String projecte = null;
   private String lloc = null;
 
@@ -45,12 +45,6 @@ public Tecnic idTecnic(ObjectId idTecnic) {
     return this;
   }
 
-   /**
-   * Get idTecnic
-   * @return idTecnic
-  **/
- // @ApiModelProperty(example = "600985", required = true, value = "")
-  //@NotNull
 
 
   public ObjectId getIdTecnic() {
@@ -66,14 +60,6 @@ public Tecnic idTecnic(ObjectId idTecnic) {
     return this;
   }
 
-   /**
-   * Get nomCognom
-   * @return nomCognom
-  **/
-  //@ApiModelProperty(example = "Ramona Flowers", required = true, value = "")
-  //@NotNull
-
-
   public String getNomCognom() {
     return nomCognom;
   }
@@ -86,13 +72,6 @@ public Tecnic idTecnic(ObjectId idTecnic) {
     this.estat = estat;
     return this;
   }
-
-   /**
-   * Get estat
-   * @return estat
-  **/
-  //@ApiModelProperty(example = "noAssignat", value = "")
-
 
   public String getEstat() {
     return estat;
@@ -107,14 +86,6 @@ public Tecnic idTecnic(ObjectId idTecnic) {
     return this;
   }
 
-   /**
-   * Get dataAlta
-   * @return dataAlta
-  **/
-  //@ApiModelProperty(example = "2016-08-29T09:12:33.001Z", required = true, value = "")
-  //@NotNull
-
-
   public String getDataAlta() {
     return dataAlta;
   }
@@ -127,12 +98,6 @@ public Tecnic idTecnic(ObjectId idTecnic) {
     this.dataBaixa = dataBaixa;
     return this;
   }
-
-   /**
-   * Get dataBaixa
-   * @return dataBaixa
-  **/
-  //@ApiModelProperty(example = "2016-08-29T09:12:33.001Z", value = "")
 
 
   public String getDataBaixa() {

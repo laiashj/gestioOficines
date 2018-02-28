@@ -18,18 +18,6 @@ public interface TecnicApi extends CrudRepository<Tecnic,String> {
     Tecnic findOne(String id);
 }
 /*
-    @ApiOperation(value = "afegeix un tecnic a la base de dades", nickname = "addTecnic", notes = "Afegeix un tecnic al sistema", tags={ "admins", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 201, message = "item creat"),
-        @ApiResponse(code = 400, message = "dades invalides, objecte invalides"),
-        @ApiResponse(code = 409, message = "aquest tecnic ja existeix") })
-    @RequestMapping(value = "/tecnic",
-        produces = { "application/json" }, 
-        consumes = { "application/json" },
-        method = RequestMethod.POST)
-    ResponseEntity<Boolean> addTecnic(@ApiParam(value = "Instancia de tecnic afegit"  )  @Valid @RequestBody Tecnic objecteTecnic);
-
-
     @ApiOperation(value = "Buscar tecnics per nom", nickname = "findTecnic", notes = "Retorna array de tecnics amb aquell nom", response = Tecnic.class, responseContainer = "List", tags={ "admins", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Tot correcte", response = Tecnic.class, responseContainer = "List"),
