@@ -10,64 +10,9 @@ import io.swagger.model.Tecnic;
 
 import org.springframework.data.repository.CrudRepository;
 
-//@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-02-26T14:49:25.168Z")
 
-//@Api(value = "tecnic", description = "the tecnic API")
-public interface TecnicApi extends CrudRepository<Tecnic,String> {
+public interface TecnicApi extends CrudRepository<Tecnic,String>, CustomRepository {
     @Override
-    Tecnic findOne(String id);
+    Tecnic findOne(String idTecnic);
+   
 }
-/*
-    @ApiOperation(value = "Buscar tecnics per nom", nickname = "findTecnic", notes = "Retorna array de tecnics amb aquell nom", response = Tecnic.class, responseContainer = "List", tags={ "admins", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Tot correcte", response = Tecnic.class, responseContainer = "List"),
-        @ApiResponse(code = 404, message = "Tecnic no trobat") })
-    @RequestMapping(value = "/tecnic/findByNom",
-        produces = { "application/json" }, 
-        method = RequestMethod.GET)
-    ResponseEntity<List<Tecnic>> findTecnic(@NotNull @ApiParam(value = "Filtrar per nom", required = true) @Valid @RequestParam(value = "nom", required = true) String nom);
-
-
-    @ApiOperation(value = "Cerca tecnics per estat", nickname = "findTecnicByStatus", notes = "Retorna els tecnics que tinguin la etiqueta noAssignat", response = Tecnic.class, responseContainer = "List", tags={ "admins", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Tot correcte", response = Tecnic.class, responseContainer = "List"),
-        @ApiResponse(code = 400, message = "Invalid tag value") })
-    @RequestMapping(value = "/tecnic/findByStatus",
-        produces = { "application/json" }, 
-        method = RequestMethod.GET)
-    ResponseEntity<List<Tecnic>> findTecnicByStatus(@NotNull @ApiParam(value = "estats filtrats", required = true) @Valid @RequestParam(value = "status", required = true) String status);
-
-
-    @ApiOperation(value = "Cerca tecnic per ID", nickname = "getTecnicById", notes = "Retorna un unic tecnic", response = Tecnic.class, tags={ "admins", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Tot correcte", response = Tecnic.class),
-        @ApiResponse(code = 400, message = "Id invalida"),
-        @ApiResponse(code = 404, message = "Tecnic no trobat") })
-    @RequestMapping(value = "/tecnic/{idTecnic}",
-        produces = { "application/json" }, 
-        method = RequestMethod.GET)
-    ResponseEntity<Tecnic> getTecnicById(@ApiParam(value = "ID del tecnic a retornar",required=true) @PathVariable("idTecnic") Integer idTecnic);
-
-
-    @ApiOperation(value = "cerca tots els tecnics", nickname = "getTecnics", notes = "Retorna tots els tecnics de la base de dades ", response = Tecnic.class, responseContainer = "List", tags={ "admins", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Retorna correctament tots els tecnics", response = Tecnic.class, responseContainer = "List"),
-        @ApiResponse(code = 404, message = "Error de conexio") })
-    @RequestMapping(value = "/tecnics",
-        produces = { "application/json" }, 
-        method = RequestMethod.GET)
-    ResponseEntity<List<Tecnic>> getTecnics();
-
-
-    @ApiOperation(value = "Actualitza un tecnic", nickname = "updateTecnic", notes = "", tags={ "admins", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 400, message = "Id no valida"),
-        @ApiResponse(code = 404, message = "Tecnic no trobat"),
-        @ApiResponse(code = 405, message = "Excepcio de validacio") })
-    @RequestMapping(value = "/tecnic",
-        produces = { "application/json" }, 
-        consumes = { "application/json" },
-        method = RequestMethod.PUT)
-    ResponseEntity<Boolean> updateTecnic(@ApiParam(value = "Objecte Tecnic que sha de modificar" ,required=true )  @Valid @RequestBody Tecnic body);
-*/
-
