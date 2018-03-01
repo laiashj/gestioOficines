@@ -29,12 +29,12 @@ public class ProjecteApiController {
         return projecte;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/projectes/{id}")
+    @RequestMapping(method = RequestMethod.GET, value = "/projectes/{idProjecte}")
     public Projecte show(@PathVariable String id) {
         return projecteRepository.findOne(id);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/projectes/{id}")
+    @RequestMapping(method = RequestMethod.PUT, value = "/projectes/{idProjecte}")
     public Projecte update(@PathVariable String id, @RequestBody Projecte projecte) {
         Projecte p = projecteRepository.findOne(id);
         if (projecte.getNom() != null) {
