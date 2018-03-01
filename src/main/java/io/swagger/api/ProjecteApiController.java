@@ -1,5 +1,8 @@
 package io.swagger.api;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,65 +56,16 @@ public class ProjecteApiController {
         return projecte;
     }
 
-    /*
-     * @org.springframework.beans.factory.annotation.Autowired public
-     * ProjecteApiController(ObjectMapper objectMapper, HttpServletRequest
-     * request) { this.objectMapper = objectMapper; this.request = request; }
-     * 
-     * public ResponseEntity<Void> addProjecte(
-     * 
-     * @ApiParam(value = "Instancia de projecte afegit") @Valid @RequestBody
-     * Projecte objecteProjecte) { String accept = request.getHeader("Accept");
-     * return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED); }
-     * 
-     * public ResponseEntity<List<Projecte>> findProjecte(
-     * 
-     * @NotNull @ApiParam(value = "Filtrar per nom", required =
-     * true) @Valid @RequestParam(value = "nom", required = true) String nom) {
-     * String accept = request.getHeader("Accept"); if (accept != null &&
-     * accept.contains("application/json")) { try { return new
-     * ResponseEntity<List<Projecte>>(objectMapper.readValue(
-     * "[ {  \"color\" : \"#42f4ce\",  \"descripcio\" : \"Projecte Balearia\",  \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",  \"idProjecte\" : 11,  \"nom\" : \"Balearia\",  \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"}, {  \"color\" : \"#42f4ce\",  \"descripcio\" : \"Projecte Balearia\",  \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",  \"idProjecte\" : 11,  \"nom\" : \"Balearia\",  \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"} ]"
-     * , List.class), HttpStatus.NOT_IMPLEMENTED); } catch (IOException e) {
-     * log.error("Couldn't serialize response for content type application/json"
-     * , e); return new
-     * ResponseEntity<List<Projecte>>(HttpStatus.INTERNAL_SERVER_ERROR); } }
-     * 
-     * return new ResponseEntity<List<Projecte>>(HttpStatus.NOT_IMPLEMENTED); }
-     * 
-     * public ResponseEntity<Projecte> getProjecteById(
-     * 
-     * @ApiParam(value = "ID del projecte a retornar", required =
-     * true) @PathVariable("idProjecte") Integer idProjecte) { String accept =
-     * request.getHeader("Accept"); if (accept != null &&
-     * accept.contains("application/json")) { try { return new
-     * ResponseEntity<Projecte>(objectMapper.readValue(
-     * "{  \"color\" : \"#42f4ce\",  \"descripcio\" : \"Projecte Balearia\",  \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",  \"idProjecte\" : 11,  \"nom\" : \"Balearia\",  \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"}"
-     * , Projecte.class), HttpStatus.NOT_IMPLEMENTED); } catch (IOException e) {
-     * log.error("Couldn't serialize response for content type application/json"
-     * , e); return new
-     * ResponseEntity<Projecte>(HttpStatus.INTERNAL_SERVER_ERROR); } }
-     * 
-     * return new ResponseEntity<Projecte>(HttpStatus.NOT_IMPLEMENTED); }
-     * 
-     * public ResponseEntity<List<Projecte>> getProjectes() { String accept =
-     * request.getHeader("Accept"); if (accept != null &&
-     * accept.contains("application/json")) { try { return new
-     * ResponseEntity<List<Projecte>>(objectMapper.readValue(
-     * "[ {  \"color\" : \"#42f4ce\",  \"descripcio\" : \"Projecte Balearia\",  \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",  \"idProjecte\" : 11,  \"nom\" : \"Balearia\",  \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"}, {  \"color\" : \"#42f4ce\",  \"descripcio\" : \"Projecte Balearia\",  \"dataAlta\" : \"2016-08-29T09:12:33.001Z\",  \"idProjecte\" : 11,  \"nom\" : \"Balearia\",  \"dataBaixa\" : \"2016-08-29T09:12:33.001Z\"} ]"
-     * , List.class), HttpStatus.NOT_IMPLEMENTED); } catch (IOException e) {
-     * log.error("Couldn't serialize response for content type application/json"
-     * , e); return new
-     * ResponseEntity<List<Projecte>>(HttpStatus.INTERNAL_SERVER_ERROR); } }
-     * 
-     * return new ResponseEntity<List<Projecte>>(HttpStatus.NOT_IMPLEMENTED); }
-     * 
-     * public ResponseEntity<Void> updateProjecte(
-     * 
-     * @ApiParam(value = "Objecte projecte que sha de modificar", required =
-     * true) @Valid @RequestBody Projecte body) { String accept =
-     * request.getHeader("Accept"); return new
-     * ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED); }
-     */
+    @RequestMapping(method = RequestMethod.GET, value = "/projectes/findByNom")
+    public List<Projecte> findProjecteByName(@PathVariable String nom) {
+        List<Projecte> p = new ArrayList<Projecte>();
+        Iterable<Projecte> tots = projecteRepository.findAll();
+        for (Projecte projecte : tots) {
+            if (projecte.getNom().contains(nom)) {
+                p.add(projecte);
+            }
+        }
+        return p;
+    }
 
 }
