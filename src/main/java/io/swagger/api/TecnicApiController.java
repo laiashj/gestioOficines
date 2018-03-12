@@ -2,14 +2,18 @@ package io.swagger.api;
 
 import io.swagger.model.Tecnic;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.ArrayList;
+
 
 @RestController
 public class TecnicApiController {
@@ -17,7 +21,9 @@ public class TecnicApiController {
     @Autowired
     private TecnicApi tecnicRepository;
 
+    @CrossOrigin(origins = "http://localhost:4200", maxAge=3600)
     @RequestMapping(method = RequestMethod.GET, value = "/tecnics")
+    @ResponseBody
     public Iterable<Tecnic> tecnic() {
 	return tecnicRepository.findAll();
     }
