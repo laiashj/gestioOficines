@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.model.Projecte;
 
-@Controller
+@RestController
 public class ProjecteApiController {
 
     @Autowired
@@ -24,26 +25,26 @@ public class ProjecteApiController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/projectes")
-    public Projecte save(@RequestBody Projecte projecte) {
-        projecteRepository.save(projecte);
-        return projecte;
+    public Projecte saveProjecte(@RequestBody Projecte projecte) {
+	projecteRepository.save(projecte);
+	return projecte;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/projectes/{idProjecte}")
-    public Projecte show(@PathVariable String id) {
-        return projecteRepository.findOne(id);
+    @RequestMapping(method=RequestMethod.GET, value="/projectes/projecte/{idProjecte}")
+    public Projecte getProjecteById(@PathVariable String idProjecte) {
+	return projecteRepository.findOne(idProjecte);
     }
-
+    
     @RequestMapping(method = RequestMethod.PUT, value = "/projectes/{idProjecte}")
-    public Projecte update(@PathVariable String id, @RequestBody Projecte projecte) {
-        Projecte p = projecteRepository.findOne(id);
+    public Projecte updateProjecte(@PathVariable String idProjecte, @RequestBody Projecte projecte) {
+        Projecte p = projecteRepository.findOne(idProjecte);
         if (projecte.getNom() != null) {
             p.setNom(projecte.getNom());
         }
         if (projecte.getDescripcio() != null) {
             p.setDescripcio(projecte.getDescripcio());
         }
-        if (projecte.getDataAlta() != null) {
+        if (projecte.getColor() != null) {
             p.setColor(projecte.getColor());
         }
         if (projecte.getDataAlta() != null) {
@@ -56,7 +57,7 @@ public class ProjecteApiController {
         return projecte;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/projectes/findByNom")
+    @RequestMapping(method = RequestMethod.GET, value = "/projectes/findByNom/{nom}")
     public List<Projecte> findProjecteByName(@PathVariable String nom) {
         List<Projecte> p = new ArrayList<Projecte>();
         Iterable<Projecte> tots = projecteRepository.findAll();

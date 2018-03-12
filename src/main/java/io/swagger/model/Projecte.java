@@ -2,6 +2,7 @@ package io.swagger.model;
 
 import java.util.Objects;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,29 +13,31 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "projecte")
 public class Projecte {
     @Id
-    private Integer idProjecte = null;
+    private ObjectId _id = null;
     private String nom = null;
     private String descripcio = null;
     private String color = null;
     private String dataAlta = null;
     private String dataBaixa = "null";
+    private String idProjecte = null;
 
     public Projecte() {
 
     }
 
-    public Projecte(Integer idProjecte, String nom, String descripcio, String color, String dataAlta) {
-        super();
+    public Projecte(String idProjecte, String nom, String descripcio, String color, String dataAlta) {
+	this._id = new ObjectId();
         this.idProjecte = idProjecte;
         this.nom = nom;
         this.descripcio = descripcio;
         this.color = color;
         this.dataAlta = dataAlta;
+        this.dataBaixa = null;
     }
 
-    public Projecte(Integer idProjecte, String nom, String descripcio, String color, String dataAlta,
+    public Projecte(String idProjecte, String nom, String descripcio, String color, String dataAlta,
             String dataBaixa) {
-        super();
+	this._id = new ObjectId();
         this.idProjecte = idProjecte;
         this.nom = nom;
         this.descripcio = descripcio;
@@ -43,11 +46,11 @@ public class Projecte {
         this.dataBaixa = dataBaixa;
     }
 
-    public Integer getIdProjecte() {
+    public String getIdProjecte() {
         return idProjecte;
     }
 
-    public void setIdProjecte(Integer idProjecte) {
+    public void setIdProjecte(String idProjecte) {
         this.idProjecte = idProjecte;
     }
 

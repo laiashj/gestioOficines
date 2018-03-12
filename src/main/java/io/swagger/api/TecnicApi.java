@@ -5,11 +5,14 @@
  */
 package io.swagger.api;
 
-import org.springframework.data.repository.CrudRepository;
-
 import io.swagger.model.Tecnic;
 
-public interface TecnicApi extends CrudRepository<Tecnic, String> {
+
+import org.springframework.data.repository.CrudRepository;
+
+
+public interface TecnicApi extends CrudRepository<Tecnic,String>, CustomRepository {
     @Override
-    Tecnic findOne(String id);
+    Tecnic findOne(String idTecnic);
+   
 }
