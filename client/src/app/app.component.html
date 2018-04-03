@@ -1,4 +1,29 @@
-<div style="text-align:center">
-  <h1>Welcome to {{title}}!</h1>
+<div>
+  <mat-toolbar color="primary">
+    
+
+  <button mat-button [matMenuTriggerFor]="tecnics">Tecnics</button>
+  <button mat-button [matMenuTriggerFor]="projectes">Projectes</button>
+  <button mat-button [matMenuTriggerFor]="llocs">Llocs</button>
+  <span class="example-spacer"></span>
+  <button mat-button routerLink="/" class="icono">
+	<mat-icon>home</mat-icon>
+  </button>
+  </mat-toolbar>
+  <mat-menu x-position="before" #tecnics="matMenu">
+    
+  <a mat-menu-item routerLink="/afegirtecnic" routerLinkActive="active">Afegir tecnic</a>
+  <a mat-menu-item routerLink="/modificartecnic" routerLinkActive="active">Modificar/Eliminar tecnic</a>
+  </mat-menu>
+  <mat-menu #projectes="matMenu">
+  <a mat-menu-item routerLink="/afegirprojecte">Afegir projecte</a>
+  <a mat-menu-item routerLink="/modificarprojecte">Modificar/Eliminar projecte</a>
+</mat-menu>
+<mat-menu #llocs="matMenu">
+  <a mat-menu-item routerLink=".">Afegir lloc</a>
+  <a mat-menu-item routerLink="/modificarlloc">Modificar/Eliminar lloc</a>
+</mat-menu>
+
 </div>
-<app-tecnic-list></app-tecnic-list>
+<router-outlet></router-outlet>
+

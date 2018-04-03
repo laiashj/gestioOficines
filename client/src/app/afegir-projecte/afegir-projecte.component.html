@@ -1,0 +1,22 @@
+<h1 style="text-align:center">Afegir projecte</h1>
+<mat-card>
+  <mat-form-field>
+    <input matInput placeholder="Nom">
+  </mat-form-field>
+  <br/>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Descripció"></textarea>
+  </mat-form-field>
+<br/>
+  <!--Falta el colorPicker-->
+  <!-- https://www.npmjs.com/package/angular4-color-picker -->
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Data alta projecte">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker touchUi="true" #picker></mat-datepicker>
+  </mat-form-field>
+  <br/>
+  <button mat-button>Afegir</button>
+</mat-card>

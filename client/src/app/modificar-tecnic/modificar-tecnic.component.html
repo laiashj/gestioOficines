@@ -1,0 +1,33 @@
+<h1 style="text-align:center"> Modificar Tecnic</h1>
+<mat-card class="modificar_tecnic">
+  <form>
+   <mat-form-field>
+    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+      <button mat-button color="warn">Eliminar</button>
+    <br/>
+    <mat-form-field>
+      <input matInput placeholder="Nom Cognom"> 
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <mat-select placeholder="Projecte">
+        <mat-option value="projecte1">Projecte1</mat-option>
+        <mat-option value="projecte2">Projecte2</mat-option>
+        <mat-option value="projecte4">Projecte3</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br/>
+    <button mat-button>Modificar</button>
+  </form>
+</mat-card>
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
