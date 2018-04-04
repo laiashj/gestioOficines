@@ -1,0 +1,15 @@
+<form (submit)="loginUser($event)">
+<mat-card class="login">
+  <mat-form-field >
+    <input matInput placeholder="Usuari" name="username" required value="admin">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput placeholder="Contrasenya" [type]="hide ? 'password' : 'text'" name="password" required value="admin">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+  </mat-form-field>
+<div>
+	<input type="submit" value="Inicia sessió">
+</div>
+  </mat-card>
+</form>

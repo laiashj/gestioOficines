@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component} from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +14,7 @@ import {map} from 'rxjs/operators/map';
   templateUrl: './modificar-tecnic.component.html',
   styleUrls: ['./modificar-tecnic.component.css']
 })
-export class ModificarTecnicComponent implements OnInit {
+export class ModificarTecnicComponent  {
 
 tecnic: any={};
 constructor() {}
@@ -35,4 +35,4 @@ constructor() {}
 }
 }
  
-}
+

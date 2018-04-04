@@ -14,8 +14,14 @@ import { ModificarTecnicComponent } from './modificar-tecnic/modificar-tecnic.co
 import { AfegirProjecteComponent} from './afegir-projecte/afegir-projecte.component';
 import { ModificarLlocComponent} from './modificar-lloc/modificar-lloc.component';
 import { ModificarProjecteComponent} from './modificar-projecte/modificar-projecte.component';
+import { LoginComponent} from './login/login.component';
+import { UserComponent} from './user/user.component';
+import { UserService} from './user.service';
+import { AuthguardGuard} from './authguard.guard';
 
 const appRoutes: Routes = [
+{path: '', component: LoginComponent},
+{path: 'user', canActivate: [AuthguardGuard], component: UserComponent},
 {path: 'tecnics', component: TecnicListComponent },
 {path: 'afegirtecnic', component: AfegirTecnicComponent},
 {path: 'modificartecnic', component: ModificarTecnicComponent},
@@ -31,7 +37,9 @@ const appRoutes: Routes = [
 	AfegirProjecteComponent,
 	ModificarLlocComponent,
 	ModificarProjecteComponent,
-    AppComponent
+    AppComponent,
+	LoginComponent,
+	UserComponent
   ],
   imports: [
     BrowserModule,
@@ -40,11 +48,9 @@ const appRoutes: Routes = [
 	FormsModule,
 	BrowserAnimationsModule,
 	RouterModule.forRoot(
-	appRoutes,
-	{ enableTracing:  true}
-	)
+	appRoutes)
 	],
-  providers: [TecnicService],
+  providers: [TecnicService, UserService, AuthguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
