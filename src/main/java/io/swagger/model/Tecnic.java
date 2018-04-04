@@ -25,98 +25,98 @@ public class Tecnic {
     public Tecnic() {
 
     }
-    public Tecnic(String idTecnic, String nomCognom, String estat, String dataAlta, String projecte,
-	    String lloc) {
-	this._id = new ObjectId();
-	this.idTecnic = idTecnic;
-	this.nomCognom = nomCognom;
-	this.estat = estat;
-	this.dataAlta = dataAlta;
-	this.dataBaixa = null;
-	this.projecte = projecte;
-	this.lloc = lloc;
+
+    public Tecnic(String idTecnic, String nomCognom, String estat, String dataAlta, String projecte, String lloc) {
+        this._id = new ObjectId();
+        this.idTecnic = idTecnic;
+        this.nomCognom = nomCognom;
+        this.estat = estat;
+        this.dataAlta = dataAlta;
+        this.dataBaixa = null;
+        this.projecte = projecte;
+        this.lloc = lloc;
     }
 
     public Tecnic(String idTecnic, String nomCognom, String estat, String dataAlta, String dataBaixa, String projecte,
-	    String lloc) {
-	this._id = new ObjectId();
-	this.idTecnic = idTecnic;
-	this.nomCognom = nomCognom;
-	this.estat = estat;
-	this.dataAlta = dataAlta;
-	this.dataBaixa = dataBaixa;
-	this.projecte = projecte;
-	this.lloc = lloc;
+            String lloc) {
+        this._id = new ObjectId();
+        this.idTecnic = idTecnic;
+        this.nomCognom = nomCognom;
+        this.estat = estat;
+        this.dataAlta = dataAlta;
+        this.dataBaixa = dataBaixa;
+        this.projecte = projecte;
+        this.lloc = lloc;
     }
 
     public Tecnic idTecnic(String idTecnic) {
-	this.idTecnic = idTecnic;
-	return this;
+        this.idTecnic = idTecnic;
+        return this;
     }
 
     public String getIdTecnic() {
-	return idTecnic;
+        return idTecnic;
     }
 
     public void setIdTecnic(String idTecnic) {
-	this.idTecnic = idTecnic;
+        this.idTecnic = idTecnic;
     }
 
     public Tecnic nomCognom(String nomCognom) {
-	this.nomCognom = nomCognom;
-	return this;
+        this.nomCognom = nomCognom;
+        return this;
     }
 
     public String getNomCognom() {
-	return nomCognom;
+        return nomCognom;
     }
 
     public void setNomCognom(String nomCognom) {
-	this.nomCognom = nomCognom;
+        this.nomCognom = nomCognom;
     }
 
     public Tecnic estat(String estat) {
-	this.estat = estat;
-	return this;
+        this.estat = estat;
+        return this;
     }
 
     public String getEstat() {
-	return estat;
+        return estat;
     }
 
     public void setEstat(String estat) {
-	this.estat = estat;
+        this.estat = estat;
     }
 
     public Tecnic dataAlta(String dataAlta) {
-	this.dataAlta = dataAlta;
-	return this;
+        this.dataAlta = dataAlta;
+        return this;
     }
 
     public String getDataAlta() {
-	return dataAlta;
+        return dataAlta;
     }
 
     public void setDataAlta(String dataAlta) {
-	this.dataAlta = dataAlta;
+        this.dataAlta = dataAlta;
     }
 
     public Tecnic dataBaixa(String dataBaixa) {
-	this.dataBaixa = dataBaixa;
-	return this;
+        this.dataBaixa = dataBaixa;
+        return this;
     }
 
     public String getDataBaixa() {
-	return dataBaixa;
+        return dataBaixa;
     }
 
     public void setDataBaixa(String dataBaixa) {
-	this.dataBaixa = dataBaixa;
+        this.dataBaixa = dataBaixa;
     }
 
     public Tecnic projecte(String projecte) {
-	this.projecte = projecte;
-	return this;
+        this.projecte = projecte;
+        return this;
     }
 
     /**
@@ -129,16 +129,16 @@ public class Tecnic {
     // @Valid
 
     public String getProjecte() {
-	return projecte;
+        return projecte;
     }
 
     public void setProjecte(String projecte) {
-	this.projecte = projecte;
+        this.projecte = projecte;
     }
 
     public Tecnic lloc(String lloc) {
-	this.lloc = lloc;
-	return this;
+        this.lloc = lloc;
+        return this;
     }
 
     /**
@@ -151,47 +151,47 @@ public class Tecnic {
     // @Valid
 
     public String getLloc() {
-	return lloc;
+        return lloc;
     }
 
     public void setLloc(String lloc) {
-	this.lloc = lloc;
+        this.lloc = lloc;
     }
 
     @Override
     public boolean equals(java.lang.Object o) {
-	if (this == o) {
-	    return true;
-	}
-	if (o == null || getClass() != o.getClass()) {
-	    return false;
-	}
-	Tecnic tecnic = (Tecnic) o;
-	return Objects.equals(this.idTecnic, tecnic.idTecnic) && Objects.equals(this.nomCognom, tecnic.nomCognom)
-		&& Objects.equals(this.estat, tecnic.estat) && Objects.equals(this.dataAlta, tecnic.dataAlta)
-		&& Objects.equals(this.dataBaixa, tecnic.dataBaixa) && Objects.equals(this.projecte, tecnic.projecte)
-		&& Objects.equals(this.lloc, tecnic.lloc);
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Tecnic tecnic = (Tecnic) o;
+        return Objects.equals(this.idTecnic, tecnic.idTecnic) && Objects.equals(this.nomCognom, tecnic.nomCognom)
+                && Objects.equals(this.estat, tecnic.estat) && Objects.equals(this.dataAlta, tecnic.dataAlta)
+                && Objects.equals(this.dataBaixa, tecnic.dataBaixa) && Objects.equals(this.projecte, tecnic.projecte)
+                && Objects.equals(this.lloc, tecnic.lloc);
     }
 
     @Override
     public int hashCode() {
-	return Objects.hash(idTecnic, nomCognom, estat, dataAlta, dataBaixa, projecte, lloc);
+        return Objects.hash(idTecnic, nomCognom, estat, dataAlta, dataBaixa, projecte, lloc);
     }
 
     @Override
     public String toString() {
-	StringBuilder sb = new StringBuilder();
-	sb.append("class Tecnic {\n");
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Tecnic {\n");
 
-	sb.append("    idTecnic: ").append(toIndentedString(idTecnic)).append("\n");
-	sb.append("    nomCognom: ").append(toIndentedString(nomCognom)).append("\n");
-	sb.append("    estat: ").append(toIndentedString(estat)).append("\n");
-	sb.append("    dataAlta: ").append(toIndentedString(dataAlta)).append("\n");
-	sb.append("    dataBaixa: ").append(toIndentedString(dataBaixa)).append("\n");
-	sb.append("    projecte: ").append(toIndentedString(projecte)).append("\n");
-	sb.append("    lloc: ").append(toIndentedString(lloc)).append("\n");
-	sb.append("}");
-	return sb.toString();
+        sb.append("    idTecnic: ").append(toIndentedString(idTecnic)).append("\n");
+        sb.append("    nomCognom: ").append(toIndentedString(nomCognom)).append("\n");
+        sb.append("    estat: ").append(toIndentedString(estat)).append("\n");
+        sb.append("    dataAlta: ").append(toIndentedString(dataAlta)).append("\n");
+        sb.append("    dataBaixa: ").append(toIndentedString(dataBaixa)).append("\n");
+        sb.append("    projecte: ").append(toIndentedString(projecte)).append("\n");
+        sb.append("    lloc: ").append(toIndentedString(lloc)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
     /**
@@ -199,9 +199,9 @@ public class Tecnic {
      * (except the first line).
      */
     private String toIndentedString(java.lang.Object o) {
-	if (o == null) {
-	    return "null";
-	}
-	return o.toString().replace("\n", "\n    ");
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
     }
 }

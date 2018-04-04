@@ -16,26 +16,17 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class SwaggerDocumentationConfig {
 
     ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-            .title("Oficina")
-            .description("API REST per controlar els tecnics de la oficina")
-            .license("Apache 2.0")
-            .licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
-            .termsOfServiceUrl("")
-            .version("1.0.0")
-            .contact(new Contact("","", ""))
-            .build();
+        return new ApiInfoBuilder().title("Oficina").description("API REST per controlar els tecnics de la oficina")
+                .license("Apache 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
+                .termsOfServiceUrl("").version("1.0.0").contact(new Contact("", "", "")).build();
     }
 
     @Bean
-    public Docket customImplementation(){
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                    .apis(RequestHandlerSelectors.basePackage("io.swagger.api"))
-                    .build()
+    public Docket customImplementation() {
+        return new Docket(DocumentationType.SWAGGER_2).select()
+                .apis(RequestHandlerSelectors.basePackage("io.swagger.api")).build()
                 .directModelSubstitute(org.threeten.bp.LocalDate.class, java.sql.Date.class)
-                .directModelSubstitute(org.threeten.bp.OffsetDateTime.class, java.util.Date.class)
-                .apiInfo(apiInfo());
+                .directModelSubstitute(org.threeten.bp.OffsetDateTime.class, java.util.Date.class).apiInfo(apiInfo());
     }
 
 }

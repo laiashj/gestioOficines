@@ -5,14 +5,18 @@
  */
 package io.swagger.api;
 
-import io.swagger.model.Tecnic;
-
+import java.util.ArrayList;
 
 import org.springframework.data.repository.CrudRepository;
 
+import io.swagger.model.Tecnic;
 
-public interface TecnicApi extends CrudRepository<Tecnic,String>, CustomRepository {
+public interface TecnicApi extends CrudRepository<Tecnic, String> {
     @Override
     Tecnic findOne(String idTecnic);
-   
+
+    ArrayList<Tecnic> findAllBynomCognom(String nom);
+
+    ArrayList<Tecnic> findAllByestat(String estat);
+
 }

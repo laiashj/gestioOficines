@@ -26,7 +26,7 @@ public class Projecte {
     }
 
     public Projecte(String idProjecte, String nom, String descripcio, String color, String dataAlta) {
-	this._id = new ObjectId();
+        this._id = new ObjectId();
         this.idProjecte = idProjecte;
         this.nom = nom;
         this.descripcio = descripcio;
@@ -35,9 +35,8 @@ public class Projecte {
         this.dataBaixa = null;
     }
 
-    public Projecte(String idProjecte, String nom, String descripcio, String color, String dataAlta,
-            String dataBaixa) {
-	this._id = new ObjectId();
+    public Projecte(String idProjecte, String nom, String descripcio, String color, String dataAlta, String dataBaixa) {
+        this._id = new ObjectId();
         this.idProjecte = idProjecte;
         this.nom = nom;
         this.descripcio = descripcio;
