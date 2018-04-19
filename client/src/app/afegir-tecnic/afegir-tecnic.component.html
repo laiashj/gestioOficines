@@ -2,24 +2,24 @@
 <mat-card>
   <form>  
     <mat-form-field>
-      <input matInput placeholder="Nom Cognom"> 
+      <input #nomTecnic matInput placeholder="Nom Cognom"> 
     </mat-form-field>
     <br/>
     <mat-form-field>
-      <input #nomTecnic matInput [matDatepicker]="picker" placeholder="Data alta">
+      <input #dataTecnic matInput [matDatepicker]="picker" placeholder="Data alta">
         <mat-datepicker-toggle matSuffix [for]                              ="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <br/>
     <mat-form-field>
-      <mat-select placeholder="Projecte">
+      <mat-select [(value)]="selected" placeholder="Projecte">
         <mat-option value="projecte1">Projecte1</mat-option>
         <mat-option value="projecte2">Projecte2</mat-option>
         <mat-option value="projecte4">Projecte3</mat-option>
       </mat-select>
     </mat-form-field>
     <br/>
-    <button (click)="onClickMe()" mat-button>Afegir</button>
-	{{clickMessage}}
+    <button (click)="onClickMe(nomTecnic.value, dataTecnic.value, selected)" mat-button>Afegir</button>
+	
   </form>
 </mat-card>

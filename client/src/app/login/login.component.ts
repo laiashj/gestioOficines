@@ -7,7 +7,7 @@ import { UserService} from '../user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
-
+hide = true;
 
   constructor(private router:Router, private user:UserService) {}
 

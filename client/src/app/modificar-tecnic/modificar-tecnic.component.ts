@@ -5,29 +5,41 @@ import { FormsModule } from '@angular/forms';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {startWith} from 'rxjs/operators/startWith';
-import {map} from 'rxjs/operators/map';
 
-
+import { TecnicService } from '../shared/tecnic/tecnic.service';
+import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged, takeWhile, first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-modificar-tecnic',
   templateUrl: './modificar-tecnic.component.html',
   styleUrls: ['./modificar-tecnic.component.css']
 })
-export class ModificarTecnicComponent  {
+export class ModificarTecnicComponent   {
 
-tecnic: any={};
-constructor() {}
-			
-  myControl : FormControl= new FormControl();
-  
+myControl = new FormControl();
 
-  options = [
-    'Eva Gorbano',
-    'Laia Sanahuja',
-    'Pepa Flores'
-   ];
-  
+filteredOptions:Observable<any[]>;
+
+constructor(private tecnicService: TecnicService){
+  this.filteredOptions = this.myControl.valueChanges
+        .pipe(
+          startWith(null),
+          debounceTime(200),
+          distinctUntilChanged(),
+          switchMap(val => {
+            return this.filter(val || '')
+          })       
+        );
+  }
+  filter(val: string): Observable<any[]> {
+    return this.tecnicService.getAll()
+    .pipe(
+      map(response => response.filter(option => { 
+        return option.nomCognom.toLowerCase().indexOf(val.toLowerCase()) === 0
+      }))
+    )
+  }
+
  clickMessage='';
 	tecnicMod(){
 		this.clickMessage='Tecnic Modificar';

@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
 import {FormControl} from '@angular/forms';
+import { TecnicService } from '../shared/tecnic/tecnic.service';
 
 
 @Component({
@@ -13,10 +14,14 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./afegir-tecnic.component.css']
 })
 export class AfegirTecnicComponent implements OnInit {
-	clickMessage='';
-	onClickMe(){
-		this.clickMessage='Tecnic Afegit';
-		//Buidar casselles
+	constructor(private tecnicService: TecnicService) { }
+	
+	
+	onClickMe(nom: string, date: string, projecte: string){
+		this.tecnicService.addTecnic(nom, date, projecte) 
+		.subscribe ( data => {
+			this.refreshData());
+		
 }
 myControl: FormControl = new FormControl();
 
@@ -27,9 +32,11 @@ myControl: FormControl = new FormControl();
    ];
    
   
-  constructor() { }
+  
 
   ngOnInit() {
   }
+  
+  
 
 }
