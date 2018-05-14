@@ -1,12 +1,12 @@
 <h1 style="text-align:center"> Afegir Tecnic</h1>
 <mat-card>
-  <form>  
+  <form (submit)=onSubmit()>  
     <mat-form-field>
-      <input #nomTecnic matInput placeholder="Nom Cognom"> 
+      <input name ="nom" [(ngModel)] ="tecnic.nomCognom" matInput placeholder="Nom Cognom"> 
     </mat-form-field>
     <br/>
     <mat-form-field>
-      <input #dataTecnic matInput [matDatepicker]="picker" placeholder="Data alta">
+      <input name="dataAlta" [(ngModel)] ="tecnic.dataAlta" matInput [matDatepicker]="picker" placeholder="Data alta">
         <mat-datepicker-toggle matSuffix [for]                              ="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -19,7 +19,8 @@
       </mat-select>
     </mat-form-field>
     <br/>
-    <button (click)="onClickMe(nomTecnic.value, dataTecnic.value, selected)" mat-button>Afegir</button>
+	<input type="Submit" value="Submit"/>
+    <button  (click)="onSubmit()" mat-button>Afegir</button>
 	
   </form>
 </mat-card>

@@ -14,29 +14,24 @@ import { TecnicService } from '../shared/tecnic/tecnic.service';
   styleUrls: ['./afegir-tecnic.component.css']
 })
 export class AfegirTecnicComponent implements OnInit {
-	constructor(private tecnicService: TecnicService) { }
 	
+	tecnics: any[];
+	tecnic={
+		nomCognom:"",
+		dataAlta:"",
+		projecte:""
+	}
 	
-	onClickMe(nom: string, date: string, projecte: string){
-		this.tecnicService.addTecnic(nom, date, projecte) 
-		.subscribe ( data => {
-			this.refreshData());
-		
+	constructor(public tecnicService: TecnicService) { 
+	}
+	
+	onSubmit(){
+		this.tecnicService.addTecnic(this.tecnic).subscribe(tecnic=>{
+			this.tecnics.unshift(this.tecnic);
+		})
+	}
+  ngOnInit() {}
 }
-myControl: FormControl = new FormControl();
-
-  options = [
-    'Eva Gorbano',
-    'Laia Sanahuja',
-    'Pepa Flores'
-   ];
-   
-  
   
 
-  ngOnInit() {
-  }
-  
-  
 
-}
