@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService} from '../user.service';
 import { Router } from '@angular/router';
+import {HeaderComponent} from '../header/header.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 @Component({

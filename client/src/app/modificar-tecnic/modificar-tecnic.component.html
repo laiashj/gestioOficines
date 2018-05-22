@@ -3,8 +3,8 @@
   <form>
    <mat-form-field>
     <input type="text" placeholder="Nom " aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let item of filteredOptions | async" [value]="item.nomCognom">
+    <mat-autocomplete #auto="matAutocomplete" >
+      <mat-option *ngFor="let item of filteredOptions | async" [value]="item.nomCognom" (onSelectionChange)="mostrarNom(item.nomCognom)">
         {{ item.nomCognom }}
       </mat-option>
     </mat-autocomplete>
@@ -12,7 +12,7 @@
       <button mat-button color="warn">Eliminar</button>
     <br/>
     <mat-form-field>
-      <input matInput placeholder="Nom Cognom"> 
+      <input type="text" matInput name="nom" placeholder="Nom Cognom" [value]="nom" /> 
     </mat-form-field>
     <br/>
     <mat-form-field>

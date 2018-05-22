@@ -17,6 +17,12 @@ import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged, ta
 export class ModificarTecnicComponent   {
 
 myControl = new FormControl();
+nom: String = '';
+
+	//nom: String = "hola";
+	/*form = new FormGroup({
+       nom: new FormControl()
+    });*/
 
 filteredOptions:Observable<any[]>;
 
@@ -45,6 +51,10 @@ constructor(private tecnicService: TecnicService){
 		this.clickMessage='Tecnic Modificar';
 		//Buidar casselles
 }
+
+	public mostrarNom(nom) {
+		this.nom = nom;
+	}
 }
  
 
