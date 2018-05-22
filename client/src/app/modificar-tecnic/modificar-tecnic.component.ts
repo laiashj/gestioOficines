@@ -18,6 +18,7 @@ export class ModificarTecnicComponent   {
 
 myControl = new FormControl();
 nom: String = '';
+projecte:String='';
 
 	//nom: String = "hola";
 	/*form = new FormGroup({
@@ -52,8 +53,10 @@ constructor(private tecnicService: TecnicService){
 		//Buidar casselles
 }
 
-	public mostrarNom(nom) {
+	public mostrarNom(nom, projecte) {
 		this.nom = nom;
+		this.projecte=projecte;
+
 	}
 }
  

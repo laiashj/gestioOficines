@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {startWith} from 'rxjs/operators/startWith';
+import {MatSnackBar} from '@angular/material';
 
 import { TecnicService } from '../shared/tecnic/tecnic.service';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged, takeWhile, first } from 'rxjs/operators';
@@ -15,19 +16,26 @@ import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged, ta
   styleUrls: ['./afegir-tecnic.component.css']
 })
 export class AfegirTecnicComponent {
-	
+	blanc:String='';
 	tecnics: any[];
+	nom: String = '';
+	mis: string='Tècnic afegit correctament';
 	tecnic={
 		nomCognom:"",
 		dataAlta:"",
-		projecte:""
+		projecte:this.nom
 	}
 	
+
 myControl = new FormControl();
 
 filteredOptions:Observable<any[]>;
+public agafarNom(nom) {
+		this.nom = nom;
+		this.tecnic.projecte= nom;
+	}
 
-	constructor(private tecnicService: TecnicService) { 
+	constructor(private tecnicService: TecnicService, public snackBar: MatSnackBar) { 
 	 this.filteredOptions = this.myControl.valueChanges
         .pipe(
           startWith(null),
@@ -38,6 +46,7 @@ filteredOptions:Observable<any[]>;
           })       
         );
 	}
+	
 	filter(val: string): Observable<any[]> {
     return this.tecnicService.getProjectes()
     .pipe(
@@ -52,9 +61,15 @@ filteredOptions:Observable<any[]>;
 		this.tecnicService.addTecnic(this.tecnic).subscribe(tecnic=>{
 			this.tecnics.unshift(this.tecnic);
 		})
+		//this.myControl.reset();
+		this.blanc=null;
+		this.snackBar.open('Tecnic afegit');
+		
+		
 	}
-  
-}
+	}
+ 
+
   
 
 

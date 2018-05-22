@@ -2,21 +2,21 @@
 
 <h1 style="text-align:center"> Afegir Tecnic</h1>
 <mat-card>
-  <form (submit)=onSubmit()>  
+  <form>  
     <mat-form-field>
-      <input name ="nom" [(ngModel)] ="tecnic.nomCognom" matInput placeholder="Nom Cognom"> 
+      <input name ="nom" [(ngModel)] ="tecnic.nomCognom" matInput placeholder="Nom Cognom" [value]="blanc"> 
     </mat-form-field>
     <br/>
     <mat-form-field>
-      <input name="dataAlta" [(ngModel)] ="tecnic.dataAlta" matInput [matDatepicker]="picker" placeholder="Data alta">
+      <input name="dataAlta" [(ngModel)] ="tecnic.dataAlta" matInput [matDatepicker]="picker" placeholder="Data alta" [value]="blanc">
         <mat-datepicker-toggle matSuffix [for]                              ="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <br/>
    <mat-form-field>
-    <input type="text" placeholder="Nom " aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <input type="text" placeholder="Projecte " aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" [value]="blanc">
     <mat-autocomplete #auto="matAutocomplete" >
-      <mat-option *ngFor="let item of filteredOptions | async" [value]="item.nom">
+      <mat-option *ngFor="let item of filteredOptions | async" [value]="item.nom" (onSelectionChange)="agafarNom(item.nom)">
         {{ item.nom }}
       </mat-option>
     </mat-autocomplete>
