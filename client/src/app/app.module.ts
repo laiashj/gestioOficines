@@ -20,6 +20,7 @@ import { UserService} from './user.service';
 import { AuthguardGuard} from './authguard.guard';
 
 
+
 const appRoutes: Routes = [
 {path: '', component: LoginComponent},
 {path: 'user', canActivate: [AuthguardGuard], component: UserComponent},

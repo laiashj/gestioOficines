@@ -17,6 +17,7 @@ import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged, ta
 export class ModificarTecnicComponent   {
 
 myControl = new FormControl();
+myControl2 = new FormControl();
 nom: String = '';
 projecte:String='';
 
@@ -26,6 +27,7 @@ projecte:String='';
     });*/
 
 filteredOptions:Observable<any[]>;
+filteredOptions2:Observable<any[]>;
 
 constructor(private tecnicService: TecnicService){
   this.filteredOptions = this.myControl.valueChanges
@@ -37,12 +39,30 @@ constructor(private tecnicService: TecnicService){
             return this.filter(val || '')
           })       
         );
+  
+  this.filteredOptions2 = this.myControl2.valueChanges
+        .pipe(
+          startWith(null),
+          debounceTime(200),
+          distinctUntilChanged(),
+          switchMap(val2 => {
+            return this.filter2(val2 || '')
+          })       
+        );
   }
   filter(val: string): Observable<any[]> {
     return this.tecnicService.getAll()
     .pipe(
       map(response => response.filter(option => { 
         return option.nomCognom.toLowerCase().indexOf(val.toLowerCase()) === 0
+      }))
+    )
+  }
+  filter2(val2: string): Observable<any[]> {
+    return this.tecnicService.getProjectes()
+    .pipe(
+      map(response => response.filter(option => { 
+        return option.nom.toLowerCase().indexOf(val2.toLowerCase()) === 0
       }))
     )
   }

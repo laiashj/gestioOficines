@@ -1,25 +1,36 @@
 <h1 style="text-align:center"> Modificar Projecte</h1>
 <mat-card>
-  <br/>
-  <mat-form-field>
-    <input matInput placeholder="Nom">
-  </mat-form-field>
 
+   <mat-form-field>
+    <input type="text" placeholder="Nom " aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" >
+      <mat-option *ngFor="let item of filteredOptions | async" [value]="item.nom" (onSelectionChange)="mostrarNom(item.nom, item.descripcio, item.color)">
+        {{ item.nom }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
   <button mat-button color="warn">Elimina</button>
   <br/>
+    <mat-form-field>
+    <input matInput placeholder="Nom" [value]="nom" >
+  </mat-form-field>
+  <br/>
   <mat-form-field class="afegirProjecte">
-    <textarea matInput placeholder="Descripció"></textarea>
+    <textarea matInput placeholder="Descripció" [value]="descripcio" ></textarea>
   </mat-form-field>
  <br/>
-  <!--Falta el colorPicker-->
-  <!-- https://www.npmjs.com/package/angular4-color-picker -->
-
+   
   <mat-form-field>
+    <input matInput placeholder="Color" name ="color" [value]="color">
+  </mat-form-field> 
+  <br/>
+
+ <!-- <mat-form-field>
     <input matInput [matDatepicker]="picker" placeholder="Data alta projecte" >
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker touchUi="true" #picker></mat-datepicker>
   </mat-form-field>
-  <br/>
+  <br/>-->
  
   <button mat-button >Modificar</button>
   

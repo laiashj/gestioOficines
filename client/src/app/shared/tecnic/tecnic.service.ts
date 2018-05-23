@@ -15,6 +15,11 @@ export class TecnicService {
 		nomCognom:"",	
 		projecte:""
 	}
+	projecte={
+		nom:"",
+		descripcio:"",
+		color:""					
+	}
   constructor(private http: HttpClient) {}
   
   
@@ -24,6 +29,9 @@ export class TecnicService {
 	
 	addTecnic(tecnic){
 		return this.http.post(this.TEC_API,tecnic);//.map;
+	}
+	addProjecte(projecte){
+		return this.http.post(this.PRO_API,projecte);//.map;
 	}
 	
 	getProjectes(): Observable<any[]>{

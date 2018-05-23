@@ -60,8 +60,7 @@ public agafarNom(nom) {
 		
 		this.tecnicService.addTecnic(this.tecnic).subscribe(tecnic=>{
 			this.tecnics.unshift(this.tecnic);
-		})
-		//this.myControl.reset();
+		})		
 		this.blanc=null;
 		this.snackBar.open('Tecnic afegit');
 		

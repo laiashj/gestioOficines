@@ -1,22 +1,27 @@
+
 <h1 style="text-align:center">Afegir projecte</h1>
 <mat-card>
+<form>
   <mat-form-field>
-    <input matInput placeholder="Nom">
+    <input matInput placeholder="Nom"  name ="nom" [(ngModel)] ="projecte.nom" [value]="blanc">
   </mat-form-field>
   <br/>
 
   <mat-form-field>
-    <textarea matInput placeholder="Descripció"></textarea>
+    <textarea matInput placeholder="Descripció"  name ="descripcio" [(ngModel)] ="projecte.descripcio" [value]="blanc"></textarea>
   </mat-form-field>
-<br/>
-  <!--Falta el colorPicker-->
-  <!-- https://www.npmjs.com/package/angular4-color-picker -->
-
+  <br/>
+  
   <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Data alta projecte">
+    <input matInput placeholder="Color" name ="color" [(ngModel)] ="projecte.color" [value]="blanc">
+  </mat-form-field> 
+  <br/>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Data alta projecte"  name="dataAlta" [(ngModel)] ="projecte.dataAlta" [value]="blanc">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker touchUi="true" #picker></mat-datepicker>
   </mat-form-field>
   <br/>
-  <button mat-button>Afegir</button>
+  <button mat-button (click)="onSubmit()">Afegir</button>
+  </form>
 </mat-card>
