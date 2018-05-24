@@ -1,3 +1,11 @@
+<!--<link rel="stylesheet" type="text/html" href="/dragula/dist/dragula.css" media="screen" />
+<link rel="stylesheet" type="text/html" href="/dragula/dist/dragula.min.css" media="screen" />
+<script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+-->
+<script type="text/javascript" src="/dragula/dist/dragula.min.js"></script>
+<script type="text/javascript" src="/dragula/dist/dragula.js"></script>
+<!-- <script type="text/javascript" src="/dragula/dist/script.js"></script>-->
 <div>
   <mat-toolbar color="primary">
     
@@ -25,4 +33,58 @@
 </mat-menu>
 
 </div>
+<br/>
+<br/>
+<div class='contenidor'>
+<div class='cont1'>
+<mat-card class='cerca'>
+<mat-form-field>
+    <input matInput placeholder="Nom"  name ="nom" >
+  </mat-form-field>
+
+        <div class='container' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
+          <div *ngFor="let item of filteredOptions" >
+            <span>{{item.nomCognom}}.</span>
+          </div>
+        </div>
+		  </mat-card>
+</div>
+<br/>
+<br/>
+<!--<div class='cont_taula'>
+<table>
+<tbody class='container' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
+	<tr class='container' *ngFor="let item of filteredOptions">
+		<td>{{item.nomCognom}}</td>
+	</tr>
+</tbody>
+</table>
+</div>-->
+<div class='cont_taula'>
+        <div class='container' >
+          <div class='taula' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>   
+		  <div class='cadira'>Cad 1</div>
+		  <div class='cadira'>Cad 2</div>
+		  <div class='cadira'>Cad 3</div>
+		  </div>
+		  
+        </div>
+</div>
+</div>
+<br/>
+<br/>
+
+
+<!--<div>
+	<mat-table [dataSource]="dataSource1">
+		<ng-container matColumnDef="nom">
+			<mat-header-cell *matHeaderCellDef> Nom Tecnic </mat-header-cell>
+			<mat-cell *ngFor="let item of filteredOptions">{{item.nomCognom}}</mat-cell>
+		</ng-container>
+	<mat-header-row *matHeaderRowDef="displayedColumns1"></mat-header-row>
+	<mat-row *matRowDef="let item of filteredOptions; displayedColumns1;"</mat-row>
+	</mat-table>
+	<!--<mat-paginator [pageSize]="10"></mat-paginator>
+</div>-->
+
 <router-outlet></router-outlet>

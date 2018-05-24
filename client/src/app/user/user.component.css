@@ -1,3 +1,78 @@
+
 .example-spacer {
   flex: 1 1 auto;
 }
+.wrapper {
+  display: table;
+}
+.container {
+  display: table;
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 50%;
+}
+.container:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+/*
+ * note that styling gu-mirror directly is a bad practice because it's too generic.
+ * you're better off giving the draggable elements a unique class and styling that directly!
+ */
+.container div,
+.container th,
+.gu-mirror {
+  margin: 10px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 0.4s ease-in-out;
+}
+.container div,
+.container tr, {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+.gu-mirror {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+.container .ex-moved {
+  background-color: #e74c3c;
+}
+.container.ex-over {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.handle {
+  padding: 0 5px;
+  margin-right: 5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor: move;
+}
+nested-repeat-example .container th {
+  display: block;
+  padding: 8px;
+}
+.cont_taula{
+	float:left;
+	position:absolute;
+	padding-right:100px;
+	padding-left:100px;
+	
+}
+.cont1{
+	float:right;
+	padding-right:100px;
+}
+.contenidor{
+	position: relative;
+	width:100%;
+	height:500px;
+}
+.cerca{
+	padding-top:0px;
+	padding-bottom:0px;
+}
+.oficina{
+}
+
