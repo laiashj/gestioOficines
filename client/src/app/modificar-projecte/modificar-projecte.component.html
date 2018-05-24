@@ -1,66 +1,55 @@
 <div>
-  <mat-toolbar color="primary">
-    
-
-  <button mat-button [matMenuTriggerFor]="tecnics">Tecnics</button>
-  <button mat-button [matMenuTriggerFor]="projectes">Projectes</button>
-  <button mat-button [matMenuTriggerFor]="llocs">Llocs</button>
-  <span class="example-spacer"></span>
-  <button mat-button routerLink="/user" class="icono">
-	<mat-icon>home</mat-icon>
-  </button>
-  </mat-toolbar>
-  <mat-menu x-position="before" #tecnics="matMenu">
-    
-  <a mat-menu-item routerLink="/afegirtecnic" routerLinkActive="active">Afegir tecnic</a>
-  <a mat-menu-item routerLink="/modificartecnic" routerLinkActive="active">Modificar/Eliminar tecnic</a>
-  </mat-menu>
-  <mat-menu #projectes="matMenu">
-  <a mat-menu-item routerLink="/afegirprojecte">Afegir projecte</a>
-  <a mat-menu-item routerLink="/modificarprojecte">Modificar/Eliminar projecte</a>
-</mat-menu>
-<mat-menu #llocs="matMenu">
-  <a mat-menu-item routerLink=".">Afegir lloc</a>
-  <a mat-menu-item routerLink="/modificarlloc">Modificar/Eliminar lloc</a>
-</mat-menu>
-
+	<mat-toolbar color="primary">
+		<button mat-button [matMenuTriggerFor]="tecnics">Tecnics</button>
+		<button mat-button [matMenuTriggerFor]="projectes">Projectes</button>
+		<button mat-button [matMenuTriggerFor]="llocs">Llocs</button>
+		<span class="example-spacer"></span>
+		<button mat-button routerLink="/user" class="icono">
+			<mat-icon>home</mat-icon>
+		 </button>
+	</mat-toolbar>
+	<mat-menu x-position="before" #tecnics="matMenu">
+		<a mat-menu-item routerLink="/afegirtecnic" routerLinkActive="active">Afegir tecnic</a>
+		<a mat-menu-item routerLink="/modificartecnic" routerLinkActive="active">Modificar/Eliminar tecnic</a>
+	</mat-menu>
+	<mat-menu #projectes="matMenu">
+		<a mat-menu-item routerLink="/afegirprojecte">Afegir projecte</a>
+		<a mat-menu-item routerLink="/modificarprojecte">Modificar/Eliminar projecte</a>
+	</mat-menu>
+	<mat-menu #llocs="matMenu">
+		<a mat-menu-item routerLink=".">Afegir lloc</a>
+		<a mat-menu-item routerLink="/modificarlloc">Modificar/Eliminar lloc</a>
+	</mat-menu>
 </div>
 
 <h1 style="text-align:center"> Modificar Projecte</h1>
 <mat-card>
-
-   <mat-form-field>
-    <input type="text" placeholder="Nom " aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete" >
-      <mat-option *ngFor="let item of filteredOptions | async" [value]="item.nom" (onSelectionChange)="mostrarNom(item.nom, item.descripcio, item.color)">
-        {{ item.nom }}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-  <button mat-button color="warn">Elimina</button>
-  <br/>
+	<mat-form-field>
+		<input type="text" placeholder="Nom " aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+		<mat-autocomplete #auto="matAutocomplete" >
+			<mat-option *ngFor="let item of filteredOptions | async" [value]="item.nom" (onSelectionChange)="mostrarNom(item._id, item.nom, item.descripcio, item.color)">
+				{{ item.nom }}
+			</mat-option>
+		</mat-autocomplete>
+	</mat-form-field>
+	<button mat-button color="warn">Elimina</button>
+	<br/>
+	
     <mat-form-field>
-    <input matInput placeholder="Nom" [value]="nom" >
-  </mat-form-field>
-  <br/>
-  <mat-form-field class="afegirProjecte">
-    <textarea matInput placeholder="Descripció" [value]="descripcio" ></textarea>
-  </mat-form-field>
- <br/>
-   
-  <mat-form-field>
-    <input matInput placeholder="Color" name ="color" [value]="color">
-  </mat-form-field> 
-  <br/>
+		<input matInput placeholder="Nom" [(ngModel)] ="projecte.nom" [value]="nom" >
+	</mat-form-field>
+	<br/>
+	
+	<mat-form-field class="afegirProjecte">
+		<textarea matInput placeholder="Descripció" [(ngModel)] ="projecte.descripcio" [value]="descripcio" ></textarea>
+	</mat-form-field>
+	<br/>
+	
+	<mat-form-field>
+		<input matInput placeholder="Color" name ="color" [(ngModel)] ="projecte.color" [value]="color">
+	</mat-form-field> 
+	<br/>
 
- <!-- <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Data alta projecte" >
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker touchUi="true" #picker></mat-datepicker>
-  </mat-form-field>
-  <br/>-->
- 
-  <button mat-button >Modificar</button>
-  
-  <br/>
+	<button mat-button (click)="onSubmit()" >Modificar</button>
+  	<br/>
 </mat-card>

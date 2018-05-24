@@ -1,59 +1,57 @@
 <div>
-  <mat-toolbar color="primary">
-    
-
-  <button mat-button [matMenuTriggerFor]="tecnics">Tecnics</button>
-  <button mat-button [matMenuTriggerFor]="projectes">Projectes</button>
-  <button mat-button [matMenuTriggerFor]="llocs">Llocs</button>
-  <span class="example-spacer"></span>
-  <button mat-button routerLink="/user" class="icono">
-	<mat-icon>home</mat-icon>
-  </button>
-  </mat-toolbar>
-  <mat-menu x-position="before" #tecnics="matMenu">
-    
-  <a mat-menu-item routerLink="/afegirtecnic" routerLinkActive="active">Afegir tecnic</a>
-  <a mat-menu-item routerLink="/modificartecnic" routerLinkActive="active">Modificar/Eliminar tecnic</a>
-  </mat-menu>
-  <mat-menu #projectes="matMenu">
-  <a mat-menu-item routerLink="/afegirprojecte">Afegir projecte</a>
-  <a mat-menu-item routerLink="/modificarprojecte">Modificar/Eliminar projecte</a>
-</mat-menu>
-<mat-menu #llocs="matMenu">
-  <a mat-menu-item routerLink=".">Afegir lloc</a>
-  <a mat-menu-item routerLink="/modificarlloc">Modificar/Eliminar lloc</a>
-</mat-menu>
-
+	<mat-toolbar color="primary">
+		<button mat-button [matMenuTriggerFor]="tecnics">Tecnics</button>
+		<button mat-button [matMenuTriggerFor]="projectes">Projectes</button>
+		<button mat-button [matMenuTriggerFor]="llocs">Llocs</button>
+		<span class="example-spacer"></span>
+		<button mat-button routerLink="/user" class="icono">
+			<mat-icon>home</mat-icon>
+		 </button>
+	</mat-toolbar>
+	<mat-menu x-position="before" #tecnics="matMenu">
+		<a mat-menu-item routerLink="/afegirtecnic" routerLinkActive="active">Afegir tecnic</a>
+		<a mat-menu-item routerLink="/modificartecnic" routerLinkActive="active">Modificar/Eliminar tecnic</a>
+	</mat-menu>
+	<mat-menu #projectes="matMenu">
+		<a mat-menu-item routerLink="/afegirprojecte">Afegir projecte</a>
+		<a mat-menu-item routerLink="/modificarprojecte">Modificar/Eliminar projecte</a>
+	</mat-menu>
+	<mat-menu #llocs="matMenu">
+		<a mat-menu-item routerLink=".">Afegir lloc</a>
+		<a mat-menu-item routerLink="/modificarlloc">Modificar/Eliminar lloc</a>
+	</mat-menu>
 </div>
 
 <h1 style="text-align:center"> Modificar Tecnic</h1>
 <mat-card class="modificar_tecnic">
-  <form>
-   <mat-form-field>
-    <input type="text" placeholder="Nom " aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete" >
-      <mat-option *ngFor="let item of filteredOptions | async" [value]="item.nomCognom" (onSelectionChange)="mostrarNom(item.nomCognom, item.projecte, item._id)">
-        {{ item.nomCognom }}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-      <button mat-button color="warn">Eliminar</button>
-    <br/>
-    <mat-form-field>
-      <input type="text" matInput name="nom" [(ngModel)] ="tecnic.nomCognom" placeholder="Nom Cognom" [value]="nom" /> 
-    </mat-form-field>
-    <br/>
-    <mat-form-field>
-    <input type="text" placeholder="Projecte " [(ngModel)] ="tecnic.projecte" aria-label="Number" matInput [formControl]="myControl2" [matAutocomplete]="auto2" [value]="projecte">
-	<mat-autocomplete #auto2="matAutocomplete" >
-      <mat-option *ngFor="let pr of filteredOptions2 | async" [value]="pr.nom" >
-        {{ pr.nom }}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-    <br/>
-    <button (click)="onSubmit()" mat-button>Modificar</button>
-  </form>
+	<form>
+		<mat-form-field>
+			<input type="text" placeholder="Nom " aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+			<mat-autocomplete #auto="matAutocomplete" >
+				<mat-option *ngFor="let item of filteredOptions | async" [value]="item.nomCognom" (onSelectionChange)="mostrarNom(item.nomCognom, item.projecte, item._id)">
+					{{ item.nomCognom }}
+				</mat-option>
+			</mat-autocomplete>
+		</mat-form-field>
+		<button mat-button color="warn">Eliminar</button>
+		<br/>
+		
+		<mat-form-field>
+		  <input type="text" matInput name="nom" [(ngModel)] ="tecnic.nomCognom" placeholder="Nom Cognom" [value]="nom" /> 
+		</mat-form-field>
+		<br/>
+		
+		<mat-form-field>
+			<input type="text" placeholder="Projecte " [(ngModel)] ="tecnic.projecte" aria-label="Number" matInput [formControl]="myControl2" [matAutocomplete]="auto2" [value]="projecte">
+			<mat-autocomplete #auto2="matAutocomplete" >
+				<mat-option *ngFor="let pr of filteredOptions2 | async" [value]="pr.nom" >
+					{{ pr.nom }}
+				</mat-option>
+			</mat-autocomplete>
+		</mat-form-field>
+		<br/>
+		<button (click)="onSubmit()" mat-button>Modificar</button>
+	</form>
 </mat-card>
 
 

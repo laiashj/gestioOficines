@@ -11,8 +11,6 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class UserComponent implements OnInit{
 	
-	
-	
 	constructor(private user:UserService){}
 
 	ngOnInit(){}

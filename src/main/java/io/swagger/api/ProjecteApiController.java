@@ -4,23 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 import io.swagger.model.Projecte;
 
+@CrossOrigin
 @RestController
 public class ProjecteApiController {
 
     @Autowired
     private ProjecteApi projecteRepository;
 
-    @CrossOrigin(origins = "http://localhost:4200", maxAge=3600)
+    @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
     @RequestMapping(method = RequestMethod.GET, value = "/projectes")
     @ResponseBody
     public Iterable<Projecte> projecte() {
@@ -29,15 +30,16 @@ public class ProjecteApiController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/projectes")
     public Projecte saveProjecte(@RequestBody Projecte projecte) {
-	projecteRepository.save(projecte);
-	return projecte;
+        projecteRepository.save(projecte);
+        return projecte;
     }
 
-    @RequestMapping(method=RequestMethod.GET, value="/projectes/projecte/{idProjecte}")
+    @RequestMapping(method = RequestMethod.GET, value = "/projectes/projecte/{idProjecte}")
     public Projecte getProjecteById(@PathVariable String idProjecte) {
-	return projecteRepository.findOne(idProjecte);
+        return projecteRepository.findOne(idProjecte);
     }
-    
+
+    @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
     @RequestMapping(method = RequestMethod.PUT, value = "/projectes/{idProjecte}")
     public Projecte updateProjecte(@PathVariable String idProjecte, @RequestBody Projecte projecte) {
         Projecte p = projecteRepository.findOne(idProjecte);
@@ -49,9 +51,6 @@ public class ProjecteApiController {
         }
         if (projecte.getColor() != null) {
             p.setColor(projecte.getColor());
-        }
-        if (projecte.getDataAlta() != null) {
-            p.setDataAlta(projecte.getDataAlta());
         }
         if (projecte.getDataBaixa() != null) {
             p.setDataBaixa(projecte.getDataBaixa());

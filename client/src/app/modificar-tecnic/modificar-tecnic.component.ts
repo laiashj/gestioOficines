@@ -16,69 +16,69 @@ import {MatSnackBar} from '@angular/material';
 })
 export class ModificarTecnicComponent   {
 
-myControl = new FormControl();
-myControl2 = new FormControl();
-nom: String = '';
-projecte:String='';
-id:String='';
-tecnics:any[];
+	myControl = new FormControl();
+	myControl2 = new FormControl();
+	nom: String = '';
+	projecte:String='';
+	id:String='';
+	tecnics:any[];
 
-tecnic={
+	tecnic={
 		_id:"",
 		nomCognom:"",
 		projecte:""
-
 	}
 
-filteredOptions:Observable<any[]>;
-filteredOptions2:Observable<any[]>;
+	filteredOptions:Observable<any[]>;
+	filteredOptions2:Observable<any[]>;
 
-constructor(private tecnicService: TecnicService, public snackBar: MatSnackBar, private _location: Location){
-  this.filteredOptions = this.myControl.valueChanges
-        .pipe(
-          startWith(null),
-          debounceTime(200),
-          distinctUntilChanged(),
-          switchMap(val => {
-            return this.filter(val || '')
-          })       
-        );
+	constructor(private tecnicService: TecnicService, public snackBar: MatSnackBar, private _location: Location){
+		this.filteredOptions = this.myControl.valueChanges
+			.pipe(
+			  startWith(null),
+			  debounceTime(200),
+			  distinctUntilChanged(),
+			  switchMap(val => {
+				return this.filter(val || '')
+			  })       
+			);
   
-  this.filteredOptions2 = this.myControl2.valueChanges
+		this.filteredOptions2 = this.myControl2.valueChanges
         .pipe(
-          startWith(null),
-          debounceTime(200),
-          distinctUntilChanged(),
-          switchMap(val2 => {
-            return this.filter2(val2 || '')
-          })       
+			startWith(null),
+			debounceTime(200),
+			distinctUntilChanged(),
+			switchMap(val2 => {
+				return this.filter2(val2 || '')
+			})       
         );
-  }
-  filter(val: string): Observable<any[]> {
-    return this.tecnicService.getAll()
-    .pipe(
-      map(response => response.filter(option => { 
-        return option.nomCognom.toLowerCase().indexOf(val.toLowerCase()) === 0
-      }))
-    )
-  }
-  filter2(val2: string): Observable<any[]> {
-    return this.tecnicService.getProjectes()
-    .pipe(
-      map(response => response.filter(option => { 
-        return option.nom.toLowerCase().indexOf(val2.toLowerCase()) === 0
-      }))
-    )
-  }
+	}
+	filter(val: string): Observable<any[]> {
+		return this.tecnicService.getAll()
+		.pipe(
+			map(response => response.filter(option => { 
+				return option.nomCognom.toLowerCase().indexOf(val.toLowerCase()) === 0
+			}))
+		)
+	}
+	filter2(val2: string): Observable<any[]> {
+		return this.tecnicService.getProjectes()
+		.pipe(
+			map(response => response.filter(option => { 
+			return option.nom.toLowerCase().indexOf(val2.toLowerCase()) === 0
+		}))
+		)
+	}
 
 	onSubmit(){
-		
 		this.tecnicService.updateTecnic(this.tecnic)
 		.subscribe(() => this.goBack());
-		
-		this.snackBar.open('Tecnic Modificat');
 	}
+	
 	public goBack(){
+		this.snackBar.open('Tecnic Modificat', 'X' {
+			duration: 3000
+		});
 		this._location.back();
 	}
 
@@ -89,10 +89,7 @@ constructor(private tecnicService: TecnicService, public snackBar: MatSnackBar, 
 			nomCognom:nom,
 			projecte:projecte
 		};
-		
 	}
-	
-
 }
  
 

@@ -14,21 +14,19 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @Document(collection = "projecte")
 public class Projecte {
     @Id
-    private ObjectId _id = null;
-    private String nom = null;
-    private String descripcio = null;
-    private String color = null;
-    private String dataAlta = null;
-    private String dataBaixa = "null";
-    private String idProjecte = null;
+    private ObjectId _id;
+    private String nom;
+    private String descripcio;
+    private String color;
+    private String dataAlta;
+    private String dataBaixa;
 
     public Projecte() {
 
     }
 
-    public Projecte(String idProjecte, String nom, String descripcio, String color, String dataAlta) {
-	this._id = new ObjectId();
-        this.idProjecte = idProjecte;
+    public Projecte(ObjectId id, String nom, String descripcio, String color, String dataAlta) {
+        this._id = id;
         this.nom = nom;
         this.descripcio = descripcio;
         this.color = color;
@@ -36,23 +34,13 @@ public class Projecte {
         this.dataBaixa = null;
     }
 
-    public Projecte(String idProjecte, String nom, String descripcio, String color, String dataAlta,
-            String dataBaixa) {
-	this._id = new ObjectId();
-        this.idProjecte = idProjecte;
+    public Projecte(String idProjecte, String nom, String descripcio, String color, String dataAlta, String dataBaixa) {
+        this._id = new ObjectId();
         this.nom = nom;
         this.descripcio = descripcio;
         this.color = color;
         this.dataAlta = dataAlta;
         this.dataBaixa = dataBaixa;
-    }
-
-    public String getIdProjecte() {
-        return idProjecte;
-    }
-
-    public void setIdProjecte(String idProjecte) {
-        this.idProjecte = idProjecte;
     }
 
     public Projecte nom(String nom) {
@@ -120,6 +108,18 @@ public class Projecte {
         this.dataBaixa = dataBaixa;
     }
 
+    public String get_id() {
+        return this._id.toString();
+    }
+
+    public void set_id(ObjectId id) {
+        this._id = id;
+    }
+
+    public ObjectId getObjectId() {
+        return this._id;
+    }
+
     @Override
     public boolean equals(java.lang.Object o) {
         if (this == o) {
@@ -129,7 +129,7 @@ public class Projecte {
             return false;
         }
         Projecte projecte = (Projecte) o;
-        return Objects.equals(this.idProjecte, projecte.idProjecte) && Objects.equals(this.nom, projecte.nom)
+        return Objects.equals(this._id, projecte._id) && Objects.equals(this.nom, projecte.nom)
                 && Objects.equals(this.descripcio, projecte.descripcio) && Objects.equals(this.color, projecte.color)
                 && Objects.equals(this.dataAlta, projecte.dataAlta)
                 && Objects.equals(this.dataBaixa, projecte.dataBaixa);
@@ -137,7 +137,7 @@ public class Projecte {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idProjecte, nom, descripcio, color, dataAlta, dataBaixa);
+        return Objects.hash(nom, descripcio, color, dataAlta, dataBaixa);
     }
 
     @Override
@@ -145,7 +145,6 @@ public class Projecte {
         StringBuilder sb = new StringBuilder();
         sb.append("class Projecte {\n");
 
-        sb.append("    idProjecte: ").append(toIndentedString(idProjecte)).append("\n");
         sb.append("    nom: ").append(toIndentedString(nom)).append("\n");
         sb.append("    descripcio: ").append(toIndentedString(descripcio)).append("\n");
         sb.append("    color: ").append(toIndentedString(color)).append("\n");

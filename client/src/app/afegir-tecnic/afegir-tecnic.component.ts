@@ -11,9 +11,9 @@ import { TecnicService } from '../shared/tecnic/tecnic.service';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged, takeWhile, first } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-afegir-tecnic',
-  templateUrl: './afegir-tecnic.component.html',
-  styleUrls: ['./afegir-tecnic.component.css']
+	selector: 'app-afegir-tecnic',
+	templateUrl: './afegir-tecnic.component.html',
+	styleUrls: ['./afegir-tecnic.component.css']
 })
 export class AfegirTecnicComponent {
 	blanc:String='';
@@ -26,48 +26,47 @@ export class AfegirTecnicComponent {
 		projecte:this.nom
 	}
 	
+	myControl = new FormControl();
 
-myControl = new FormControl();
-
-filteredOptions:Observable<any[]>;
-public agafarNom(nom) {
+	filteredOptions:Observable<any[]>;
+	public agafarNom(nom) {
 		this.nom = nom;
 		this.tecnic.projecte= nom;
 	}
 
 	constructor(private tecnicService: TecnicService, public snackBar: MatSnackBar, private _location: Location) { 
-	 this.filteredOptions = this.myControl.valueChanges
-        .pipe(
-          startWith(null),
-          debounceTime(200),
-          distinctUntilChanged(),
-          switchMap(val => {
-            return this.filter(val || '')
-          })       
+		this.filteredOptions = this.myControl.valueChanges
+			.pipe(
+				startWith(null),
+				debounceTime(200),
+				distinctUntilChanged(),
+				switchMap(val => {
+            return this.filter(val || '')})       
         );
 	}
 	
 	filter(val: string): Observable<any[]> {
-    return this.tecnicService.getProjectes()
-    .pipe(
-      map(response => response.filter(option => { 
-        return option.nom.toLowerCase().indexOf(val.toLowerCase()) === 0
-      }))
-    )
-  }
+		return this.tecnicService.getProjectes()
+		.pipe(
+			map(response => response.filter(option => { 
+			return option.nom.toLowerCase().indexOf(val.toLowerCase()) === 0
+			}))
+		)
+	}
 	
 	onSubmit(){
-		
-		this.tecnicService.addTecnic(this.tecnic).subscribe(tecnic=>{
-			this.tecnics.unshift(this.tecnic);
-		})		
+		this.tecnicService.addTecnic(this.tecnic)
+			.subscribe(=> this.goBack());			
 		this.blanc=null;
-		this.snackBar.open('Tecnic afegit');
+	}
+	
+	public goBack(){
+		this.snackBar.open('Tècnic afegit', 'X' {
+			duration: 3000
+		});
 		this._location.back();
-
-		
 	}
-	}
+}
  
 
   

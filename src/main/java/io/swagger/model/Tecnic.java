@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @Document(collection = "tecnic")
 public class Tecnic {
     @Id
-    private ObjectId _id = null;
-    private String nomCognom = null;
-    private String estat = "noAssignat";
-    private String dataAlta = null;
-    private String dataBaixa = null;
-    private String projecte = null;
-    private String lloc = null;
+    private ObjectId _id;
+    private String nomCognom;
+    private String estat;
+    private String dataAlta;
+    private String dataBaixa;
+    private String projecte;
+    private String lloc;
 
     public Tecnic() {
 
