@@ -32,7 +32,7 @@
    <mat-form-field>
     <input type="text" placeholder="Nom " aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete" >
-      <mat-option *ngFor="let item of filteredOptions | async" [value]="item.nomCognom" (onSelectionChange)="mostrarNom(item.nomCognom, item.projecte)">
+      <mat-option *ngFor="let item of filteredOptions | async" [value]="item.nomCognom" (onSelectionChange)="mostrarNom(item.nomCognom, item.projecte, item._id)">
         {{ item.nomCognom }}
       </mat-option>
     </mat-autocomplete>
@@ -40,19 +40,19 @@
       <button mat-button color="warn">Eliminar</button>
     <br/>
     <mat-form-field>
-      <input type="text" matInput name="nom" placeholder="Nom Cognom" [value]="nom" /> 
+      <input type="text" matInput name="nom" [(ngModel)] ="tecnic.nomCognom" placeholder="Nom Cognom" [value]="nom" /> 
     </mat-form-field>
     <br/>
     <mat-form-field>
-    <input type="text" placeholder="Projecte " aria-label="Number" matInput [formControl]="myControl2" [matAutocomplete]="auto2" ><!--[value]="projecte">-->
+    <input type="text" placeholder="Projecte " [(ngModel)] ="tecnic.projecte" aria-label="Number" matInput [formControl]="myControl2" [matAutocomplete]="auto2" [value]="projecte">
 	<mat-autocomplete #auto2="matAutocomplete" >
-      <mat-option *ngFor="let pr of filteredOptions2 | async" [value]="pr.nom" ><!--(onSelectionChange)="mostrarNom(pr.nom)">-->
+      <mat-option *ngFor="let pr of filteredOptions2 | async" [value]="pr.nom" >
         {{ pr.nom }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
     <br/>
-    <button mat-button>Modificar</button>
+    <button (click)="onSubmit()" mat-button>Modificar</button>
   </form>
 </mat-card>
 

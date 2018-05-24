@@ -5,10 +5,10 @@ import { FormsModule } from '@angular/forms';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {startWith} from 'rxjs/operators/startWith';
-
+import { Location } from '@angular/common';
 import { TecnicService } from '../shared/tecnic/tecnic.service';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged, takeWhile, first } from 'rxjs/operators';
-
+import {MatSnackBar} from '@angular/material';
 @Component({
   selector: 'app-modificar-tecnic',
   templateUrl: './modificar-tecnic.component.html',
@@ -20,16 +20,20 @@ myControl = new FormControl();
 myControl2 = new FormControl();
 nom: String = '';
 projecte:String='';
+id:String='';
+tecnics:any[];
 
-	//nom: String = "hola";
-	/*form = new FormGroup({
-       nom: new FormControl()
-    });*/
+tecnic={
+		_id:"",
+		nomCognom:"",
+		projecte:""
+
+	}
 
 filteredOptions:Observable<any[]>;
 filteredOptions2:Observable<any[]>;
 
-constructor(private tecnicService: TecnicService){
+constructor(private tecnicService: TecnicService, public snackBar: MatSnackBar, private _location: Location){
   this.filteredOptions = this.myControl.valueChanges
         .pipe(
           startWith(null),
@@ -67,17 +71,28 @@ constructor(private tecnicService: TecnicService){
     )
   }
 
- clickMessage='';
-	tecnicMod(){
-		this.clickMessage='Tecnic Modificar';
-		//Buidar casselles
-}
-
-	public mostrarNom(nom, projecte) {
-		this.nom = nom;
-		this.projecte=projecte;
-
+	onSubmit(){
+		
+		this.tecnicService.updateTecnic(this.tecnic)
+		.subscribe(() => this.goBack());
+		
+		this.snackBar.open('Tecnic Modificat');
 	}
+	public goBack(){
+		this._location.back();
+	}
+
+	public mostrarNom(nom, projecte, id) {
+				
+		this.tecnic = {
+			_id:id,
+			nomCognom:nom,
+			projecte:projecte
+		};
+		
+	}
+	
+
 }
  
 

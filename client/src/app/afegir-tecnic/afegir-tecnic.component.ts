@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs/Observable';
-import {startWith} from 'rxjs/operators/startWith';
-import {MatSnackBar} from '@angular/material';
-
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
+import { startWith } from 'rxjs/operators/startWith';
+import { MatSnackBar } from '@angular/material';
+import { Location } from '@angular/common';
 import { TecnicService } from '../shared/tecnic/tecnic.service';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged, takeWhile, first } from 'rxjs/operators';
 
@@ -35,7 +35,7 @@ public agafarNom(nom) {
 		this.tecnic.projecte= nom;
 	}
 
-	constructor(private tecnicService: TecnicService, public snackBar: MatSnackBar) { 
+	constructor(private tecnicService: TecnicService, public snackBar: MatSnackBar, private _location: Location) { 
 	 this.filteredOptions = this.myControl.valueChanges
         .pipe(
           startWith(null),
@@ -63,7 +63,8 @@ public agafarNom(nom) {
 		})		
 		this.blanc=null;
 		this.snackBar.open('Tecnic afegit');
-		
+		this._location.back();
+
 		
 	}
 	}

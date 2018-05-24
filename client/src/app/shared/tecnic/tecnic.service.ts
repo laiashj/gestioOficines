@@ -1,27 +1,29 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpOptions } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+
 import 'rxjs/add/operator/map'
 import 'rxjs/Rx';
-import { catchError, map, tap,startWith, switchMap, debounceTime, distinctUntilChanged, takeWhile, first } from 'rxjs/operators';
-import { HttpHeaders } from '@angular/common/http';
+import { catchError, retry, map, tap,startWith, switchMap, debounceTime, distinctUntilChanged, takeWhile, first } from 'rxjs/operators';
+
+
 
 @Injectable()
 export class TecnicService {
 	public API = '//localhost:8080/midiee2/ProjecteOficines/1.0.0';
 	public TEC_API= this.API+'/tecnics';
 	public PRO_API=this.API+'/projectes';
+	
+	
 	tecnic={
 		nomCognom:"",	
 		projecte:""
 	}
-	projecte={
-		nom:"",
-		descripcio:"",
-		color:""					
-	}
+	
+	
+	
   constructor(private http: HttpClient) {}
-  
+	
   
 	getAll(): Observable<any[]> {
 		return this.http.get<any>(this.TEC_API)
@@ -35,11 +37,13 @@ export class TecnicService {
 	}
 	
 	getProjectes(): Observable<any[]>{
-		return this.http.get<any>(this.PRO_API)
+		return this.http.get<any>(this.PRO_API);
 	}
-	//updateTecnic(id){
-	//	return this.http.put(this.TEC_API+'/'+id)
-	//}
+	
+    updateTecnic(tecnic):Observable<any>{
+		return this.http.put<any>(this.TEC_API+'/'+tecnic._id, tecnic) //this.httpOptions)
+		.pipe();
+	}
 } 
 	  
   
