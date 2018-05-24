@@ -18,6 +18,8 @@ import { LoginComponent} from './login/login.component';
 import { UserComponent} from './user/user.component';
 import { UserService} from './user.service';
 import { AuthguardGuard} from './authguard.guard';
+import { DragulaModule } from 'ng2-dragula';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -49,6 +51,8 @@ const appRoutes: Routes = [
 	HttpClientModule,
 	MaterialModule, 
 	FormsModule,
+	DragulaModule,
+	MatListModule,
 	BrowserAnimationsModule,
 	RouterModule.forRoot(
 	appRoutes)
