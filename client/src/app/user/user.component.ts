@@ -39,7 +39,7 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
 	data => {
 	this.filteredOptions= data;
 	//this.dataSource1.data=data;});
-	}
+	};
 	//dataSource1=new MatTableDataSource<any>(ELEMENT_DATA);
 	//displayedColumns1=['nomCognom'];
 	
@@ -57,6 +57,7 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
 	}*/
 	
 	
+  }
   }
 //const ELEMENT_DATA: Element[]=[];
 	

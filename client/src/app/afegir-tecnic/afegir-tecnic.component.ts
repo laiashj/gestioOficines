@@ -56,7 +56,7 @@ export class AfegirTecnicComponent {
 	
 	onSubmit(){
 		this.tecnicService.addTecnic(this.tecnic)
-			.subscribe(=> this.goBack());			
+			.subscribe(=> this.goBack());
 		this.blanc=null;
 	}
 	

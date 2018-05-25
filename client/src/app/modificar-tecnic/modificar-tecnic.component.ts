@@ -8,7 +8,7 @@ import {startWith} from 'rxjs/operators/startWith';
 import { Location } from '@angular/common';
 import { TecnicService } from '../shared/tecnic/tecnic.service';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged, takeWhile, first } from 'rxjs/operators';
-import { MatSnackBar } from '@angular/material';
+import {MatSnackBar} from '@angular/material';
 @Component({
   selector: 'app-modificar-tecnic',
   templateUrl: './modificar-tecnic.component.html',
