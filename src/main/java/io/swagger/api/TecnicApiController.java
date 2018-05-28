@@ -1,6 +1,7 @@
 package io.swagger.api;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.model.Tecnic;
 
-//@CrossOrigin
+@CrossOrigin
 @RestController
 public class TecnicApiController {
 
@@ -30,7 +31,7 @@ public class TecnicApiController {
     @RequestMapping(method = RequestMethod.POST, value = "/tecnics")
     public Tecnic saveTecnic(@RequestBody Tecnic tecnic) {
         Tecnic t = new Tecnic(tecnic.getObjectid(), tecnic.getNomCognom(), tecnic.getDataAlta(), tecnic.getProjecte(),
-                tecnic.getLloc());
+                tecnic.getLloc(), tecnic.getColor());
         tecnicRepository.save(t);
         return tecnic;
     }
@@ -60,7 +61,7 @@ public class TecnicApiController {
         }
 
         if (tecnic.getDataBaixa() != null) {
-            t.setDataBaixa(tecnic.getDataBaixa());
+            t.setDataBaixa(new Date().toString());
         }
 
         tecnicRepository.save(t);
@@ -87,6 +88,18 @@ public class TecnicApiController {
         ArrayList<Tecnic> tecnics = new ArrayList<>();
         for (Tecnic tec : llista) {
             if (tec.getEstat().equals(estat)) {
+                tecnics.add(tec);
+            }
+        }
+        return tecnics;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/tecnics/alta/{baixa}")
+    public ArrayList<Tecnic> getTecnicsByDataBaixa(@PathVariable String baixa) {
+        Iterable<Tecnic> llista = tecnicRepository.findAll();
+        ArrayList<Tecnic> tecnics = new ArrayList<>();
+        for (Tecnic tec : llista) {
+            if (tec.getDataBaixa().equals(baixa)) {
                 tecnics.add(tec);
             }
         }

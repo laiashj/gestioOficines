@@ -28,6 +28,7 @@ export class ModificarTecnicComponent   {
 		nomCognom:"",
 		projecte:""
 	}
+	tec={}
 
 	filteredOptions:Observable<any[]>;
 	filteredOptions2:Observable<any[]>;
@@ -75,13 +76,29 @@ export class ModificarTecnicComponent   {
 		.subscribe(() => this.goBack());
 	}
 	
+	eliminar(){
+		this.tec={
+			_id : this.id,
+			dataBaixa : "avui"
+		};
+		this.tecnicService.updateTecnic(this.tec)
+		.subscribe(() => this.goBack2());
+	}
+	
 	public goBack(){
 		this.snackBar.open('Tecnic Modificat', 'X' {
 			duration: 3000
 		});
 		this._location.back();
 	}
+	
+	public goBack2(){
+		this.snackBar.open('Tecnic Eliminat', 'X' {
+			duration: 3000
+		});
 
+	}
+	
 	public mostrarNom(nom, projecte, id) {
 				
 		this.tecnic = {
@@ -89,6 +106,7 @@ export class ModificarTecnicComponent   {
 			nomCognom:nom,
 			projecte:projecte
 		};
+		this.id = id;
 	}
 }
  

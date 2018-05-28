@@ -40,16 +40,15 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
 	
 	
   }
-  setStyleProjecte(){
+ /* setStyleProjecte(tecnic){
 	//  this.tecnicService.getProjecteByNom(tecnic.nom).subscribe(
  // data => this.projectes=data);
 		
 		let styles={  
-			'background-color': 'lime'
-		  
+			'background-color': tecnic.color;	  
   }
 	  return styles;
-  }
+  }*/
   
   }
 	

@@ -20,27 +20,29 @@ public class Tecnic {
     private String dataAlta;
     private String dataBaixa;
     private String projecte;
+    private String color;
     private String lloc;
 
     public Tecnic() {
 
     }
 
-    public Tecnic(ObjectId id, String nomCognom, String dataAlta, String projecte, String lloc) {
+    public Tecnic(ObjectId id, String nomCognom, String dataAlta, String projecte, String lloc, String color) {
         this._id = id;
         this.nomCognom = nomCognom;
         this.estat = "noAssignat";
         this.dataAlta = dataAlta;
-        this.dataBaixa = null;
+        this.dataBaixa = "alta";
         this.projecte = projecte;
         this.lloc = lloc;
     }
 
-    public Tecnic(String nomCognom, String dataAlta, String projecte, String lloc) {
+    public Tecnic(String nomCognom, String dataAlta, String projecte, String lloc, String color) {
         this._id = new ObjectId();
         this.nomCognom = nomCognom;
         this.estat = "noAssignat";
         this.dataAlta = dataAlta;
+        this.dataBaixa = "alta";
         this.projecte = projecte;
         this.lloc = lloc;
     }
@@ -117,6 +119,14 @@ public class Tecnic {
 
     public void setProjecte(String projecte) {
         this.projecte = projecte;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public Tecnic lloc(String lloc) {

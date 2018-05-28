@@ -43,7 +43,7 @@
   </mat-form-field>
 
         <div class='container' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-          <div *ngFor="let item of filteredOptions" [ngStyle]="setStyleProjecte()" >
+          <div *ngFor="let item of filteredOptions" [style.background-color]="item.color" >
             <span>{{item.nomCognom}}.</span>
           </div>
         </div>

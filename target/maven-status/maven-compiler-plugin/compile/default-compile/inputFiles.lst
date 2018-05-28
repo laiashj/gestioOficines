@@ -1,23 +1,20 @@
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\model\Lloc.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\api\LlocApiController.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\api\ProjecteApi.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\api\TecnicApiController.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\service\TecnicService.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\model\Tecnic.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\configuration\CustomInstantDeserializer.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\service\LlocService.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\api\ApiException.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\api\LlocApi.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\api\ApiOriginFilter.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\api\TecnicApi.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\Swagger2SpringBoot.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\configuration\SwaggerDocumentationConfig.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\service\ProjecteService.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\api\ApiResponseMessage.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\api\ProjecteApiController.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\api\CustomRepository.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\model\Projecte.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\configuration\JacksonConfiguration.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\RFC3339DateFormat.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\api\NotFoundException.java
-C:\Users\6000989\Desktop\gestioOficines-eva\src\main\java\io\swagger\configuration\HomeController.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\api\LlocApi.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\RFC3339DateFormat.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\api\ApiException.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\Swagger2SpringBoot.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\api\ApiResponseMessage.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\api\TecnicApi.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\configuration\JacksonConfiguration.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\api\ProjecteApi.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\api\TecnicApiController.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\configuration\SwaggerDocumentationConfig.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\model\Lloc.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\api\ProjecteApiController.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\configuration\HomeController.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\api\ApiOriginFilter.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\api\LlocApiController.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\configuration\CustomInstantDeserializer.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\api\NotFoundException.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\model\Tecnic.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\api\CustomRepository.java
+C:\Users\6000990\Desktop\gestioOficines-eva - copia\src\main\java\io\swagger\model\Projecte.java

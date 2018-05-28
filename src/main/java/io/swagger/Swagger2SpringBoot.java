@@ -44,9 +44,9 @@ public class Swagger2SpringBoot implements CommandLineRunner {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/tecnics").allowedOrigins("http://localhost:4200");
-
                 registry.addMapping("/projectes").allowedOrigins("http://localhost:4200");
                 registry.addMapping("/llocs").allowedOrigins("http://localhost:4200");
+                registry.addMapping("/tecnics/alta").allowedOrigins("http://localhost:4200");
             }
         };
     }
