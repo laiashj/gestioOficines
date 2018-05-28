@@ -21,11 +21,9 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit/*, AfterViewInit*/{
-
-  
-  filteredOptions:any;
-  
-	
+ 
+  filteredOptions:any;	
+  projectes:any;
   
 	constructor(private user:UserService, private dragulaService: DragulaService, public tecnicService:TecnicService){
 	dragulaService.setOptions('bag-task1', {
@@ -38,28 +36,22 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
 	this.tecnicService.getAll().subscribe(
 	data => {
 	this.filteredOptions= data;
-	//this.dataSource1.data=data;});
 	};
-	//dataSource1=new MatTableDataSource<any>(ELEMENT_DATA);
-	//displayedColumns1=['nomCognom'];
 	
-	//@ViewChild(MatPaginator) paginator: MatPaginator;
-	//@ViewChild(MatSort) sort: MatSort;
-	/*ngAfterViewInit(){
-		//this.dataSource1.paginator=this.paginator;
-		//this.dataSource1.sort=this.sort;
-	}
-	applyFilter(filterValue:string){
-		filterValue=filterValue.trim();
-		filterValue=filterValue.toLowerCase();
-		this.dataSource1.filterValue=filterValue;
+	
+  }
+  setStyleProjecte(){
+	//  this.tecnicService.getProjecteByNom(tecnic.nom).subscribe(
+ // data => this.projectes=data);
 		
-	}*/
-	
-	
+		let styles={  
+			'background-color': 'lime'
+		  
   }
+	  return styles;
   }
-//const ELEMENT_DATA: Element[]=[];
+  
+  }
 	
   
 

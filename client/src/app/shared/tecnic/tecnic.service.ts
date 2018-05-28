@@ -47,6 +47,9 @@ export class TecnicService {
 		return this.http.put<any>(this.PRO_API+'/'+projecte._id, projecte)
 		.pipe();
 	}
+	getProjecteByNom(nom):Observable<any>{
+		return this.http.get<any>(this.PRO_API+'/findByNom/'+nom);
+	}
 } 
 	  
   

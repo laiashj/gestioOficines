@@ -28,7 +28,7 @@ export class AfegirProjecteComponent {
 	
 	onSubmit(){
 		this.tecnicService.addProjecte(this.projecte)
-		.subscribe(=> this.goBack())
+		.subscribe(=> this.goBack());
 	}
 	
 	public goBack(){
