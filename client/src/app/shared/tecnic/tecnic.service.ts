@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpOptions } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map'
@@ -23,13 +23,29 @@ export class TecnicService {
 	constructor(private http: HttpClient) {}
 	  
 	getAll(): Observable<any[]> {
-		return this.http.get<any>(this.TEC_API)
+		return this.http.get<any>(this.TEC_API);
+	}
+	
+	getTecnicsAlta():Observable<any[]> {
+		return this.http.get<any>(this.TEC_API+'/alta/alta');
+	}
+	
+	getTecnicsNoAssignats():Observable<any[]>{
+		return this.http.get<any>(this.TEC_API+'/estat/noAssignat');
+	}
+	
+	getTecnicByProjecte(nomProjecte):Observable<any[]>{
+		return this.http.get<any>(this.TEC_API+'/projecte/'+nomProjecte);
 	}
 	
 	addTecnic(tecnic){
 		return this.http.post(this.TEC_API,tecnic);//.map;
 	}
 	
+	updateTecnic(tecnic):Observable<any>{
+		return this.http.put<any>(this.TEC_API+'/'+tecnic._id, tecnic) 
+		.pipe();
+	}
 	addProjecte(projecte){
 		return this.http.post(this.PRO_API,projecte);//.map;
 	}
@@ -38,17 +54,16 @@ export class TecnicService {
 		return this.http.get<any>(this.PRO_API);
 	}
 	
-    updateTecnic(tecnic):Observable<any>{
-		return this.http.put<any>(this.TEC_API+'/'+tecnic._id, tecnic) //this.httpOptions)
-		.pipe();
+	getProjectesAlta(): Observable<any[]>{
+		return this.http.get<any>(this.PRO_API+'/alta/alta');
 	}
 	
 	updateProjecte(projecte):Observable<any>{
 		return this.http.put<any>(this.PRO_API+'/'+projecte._id, projecte)
 		.pipe();
 	}
-	getProjecteByNom(nom):Observable<any>{
-		return this.http.get<any>(this.PRO_API+'/findByNom/'+nom);
+	getProjecteByNom(nom){
+		return this.http.get(this.PRO_API+'/findByNom/'+nom);
 	}
 } 
 	  

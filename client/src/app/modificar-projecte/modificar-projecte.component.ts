@@ -23,6 +23,7 @@ export class ModificarProjecteComponent  {
 	id:String='';
 	color:String = '';
 	filteredOptions:Observable<any[]>;
+	tecnics:Array<Object>;
 	
 	projecte = {
 		_id:"",
@@ -30,6 +31,7 @@ export class ModificarProjecteComponent  {
 		descripcio:"", 
 		color:""
 	};
+	pro = {};
 
 	constructor(private tecnicService: TecnicService, public snackBar: MatSnackBar, private _location: Location) { 
 		this.filteredOptions = this.myControl.valueChanges
@@ -44,7 +46,7 @@ export class ModificarProjecteComponent  {
 	}
 		
 	filter(val: string): Observable<any[]> {
-		return this.tecnicService.getProjectes()
+		return this.tecnicService.getProjectesAlta()
 		.pipe(
 			map(response => response.filter(option => { 
 			return option.nom.toLowerCase().indexOf(val.toLowerCase()) === 0
@@ -52,16 +54,30 @@ export class ModificarProjecteComponent  {
 		)
 	}
 	
-	onSubmit(){
+	public onSubmit(){
 		this.tecnicService.updateProjecte(this.projecte)
-		.subscribe(() => this.goBack());
+		.subscribe(() => this.goBack("Projecte modificat correctament"));
 	}
 	
-	public goBack(){
-		this.snackBar.open('Projecte Modificat', 'X' {
+	public eliminar(){
+		this.pro={
+			_id: this.id,
+			dataBaixa: "avui"
+		}
+		this.tecnicService.updateProjecte(this.pro)
+		.subscribe(() => this.goBack("projecte eliminat correctament"));
+	}
+	
+	private goBack(m: string){
+		
+		this.snackBar.open(m, 'X',{
 			duration: 3000
 		});
-		this._location.back();
+		this.modificarTecnics();
+		//this._location.back();
+		this.nom = null;
+		this.descripcio = null;
+		this.color = null;
 	}
 
 	public mostrarNom(id, nom, descripcio, color ) {
@@ -74,8 +90,21 @@ export class ModificarProjecteComponent  {
 		this.nom= nom;
 		this.descripcio = descripcio;
 		this.color = color;
-
+		this.id = id;
 	}
 	
+	public modificarTecnics(){
+		this.tecnicService.getTecnicByProjecte(this.nom).subscribe(
+		data => {
+			this.tecnics= data;
+			}
+		)
+		for (let t of this.tecnics) {
+			t.projecte= this.nom;
+			t.color = this.color;
+			this.tecnicService.updateTecnic(t)
+			.subscribe(() => this.goBack("tècnics modificats correctament"));
+		}
+	}
 	
 }

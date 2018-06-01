@@ -23,8 +23,11 @@ export class AfegirTecnicComponent {
 	tecnic={
 		nomCognom:"",
 		dataAlta:"",
-		projecte:this.nom
+		projecte:this.nom,
+		color: ""
 	}
+	projecte: Object;
+	color: String='';
 	
 	myControl = new FormControl();
 
@@ -32,6 +35,12 @@ export class AfegirTecnicComponent {
 	public agafarNom(nom) {
 		this.nom = nom;
 		this.tecnic.projecte= nom;
+		this.tecnicService.getProjecteByNom(nom).subscribe(
+		data => {
+			this.projecte = data;
+			}
+		);
+		//this.color = this.projecte.color;
 	}
 
 	constructor(private tecnicService: TecnicService, public snackBar: MatSnackBar, private _location: Location) { 
@@ -46,7 +55,7 @@ export class AfegirTecnicComponent {
 	}
 	
 	filter(val: string): Observable<any[]> {
-		return this.tecnicService.getProjectes()
+		return this.tecnicService.getProjectesAlta()
 		.pipe(
 			map(response => response.filter(option => { 
 			return option.nom.toLowerCase().indexOf(val.toLowerCase()) === 0
@@ -55,16 +64,27 @@ export class AfegirTecnicComponent {
 	}
 	
 	onSubmit(){
+		this.tecnic.color = this.projecte.color;
 		this.tecnicService.addTecnic(this.tecnic)
-			.subscribe(=> this.goBack());
-		this.blanc=null;
+		.subscribe( ()=> this.goBack())
+		
 	}
 	
 	public goBack(){
-		this.snackBar.open('Tècnic afegit', 'X' {
+		this.snackBar.open('Tècnic afegit', 'X', {
 			duration: 3000
 		});
-		this._location.back();
+		this.blanc = null;
+		this.nom = null;
+		this.projecte = null;
+		this.color = null;
+		this.tecnic={
+			nomCognom:"",
+			dataAlta:"",
+			projecte:"",
+			color: ""
+		}
+		//this._location.back();
 	}
 }
  

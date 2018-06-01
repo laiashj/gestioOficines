@@ -47,6 +47,8 @@ public class Swagger2SpringBoot implements CommandLineRunner {
                 registry.addMapping("/projectes").allowedOrigins("http://localhost:4200");
                 registry.addMapping("/llocs").allowedOrigins("http://localhost:4200");
                 registry.addMapping("/tecnics/alta").allowedOrigins("http://localhost:4200");
+                registry.addMapping("/tecnics/projecte").allowedOrigins("http://localhost:4200");
+                registry.addMapping("/projectes/alta").allowedOrigins("http://localhost:4200");
             }
         };
     }

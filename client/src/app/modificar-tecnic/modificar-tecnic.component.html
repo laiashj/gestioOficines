@@ -26,7 +26,7 @@
 <mat-card class="modificar_tecnic">
 	<form>
 		<mat-form-field>
-			<input type="text" placeholder="Nom " aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+			<input type="text" placeholder="Nom " aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" [value]="nom">
 			<mat-autocomplete #auto="matAutocomplete" >
 				<mat-option *ngFor="let item of filteredOptions | async" [value]="item.nomCognom" (onSelectionChange)="mostrarNom(item.nomCognom, item.projecte, item._id)">
 					{{ item.nomCognom }}
@@ -42,9 +42,9 @@
 		<br/>
 		
 		<mat-form-field>
-			<input type="text" placeholder="Projecte " [(ngModel)] ="tecnic.projecte" aria-label="Number" matInput [formControl]="myControl2" [matAutocomplete]="auto2" [value]="projecte">
+			<input type="text" placeholder="Projecte " [(ngModel)] ="tecnic.projecte" aria-label="Number" matInput [formControl]="myControl2" [matAutocomplete]="auto2" >
 			<mat-autocomplete #auto2="matAutocomplete" >
-				<mat-option *ngFor="let pr of filteredOptions2 | async" [value]="pr.nom" >
+				<mat-option *ngFor="let pr of filteredOptions2 | async" [value]="pr.nom" (onSelectionChange)="buscarProjecte(pr.nom)">
 					{{ pr.nom }}
 				</mat-option>
 			</mat-autocomplete>

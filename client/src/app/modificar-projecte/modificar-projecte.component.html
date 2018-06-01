@@ -25,14 +25,14 @@
 <h1 style="text-align:center"> Modificar Projecte</h1>
 <mat-card>
 	<mat-form-field>
-		<input type="text" placeholder="Nom " aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+		<input type="text" placeholder="Nom " aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" [value]="nom">
 		<mat-autocomplete #auto="matAutocomplete" >
 			<mat-option *ngFor="let item of filteredOptions | async" [value]="item.nom" (onSelectionChange)="mostrarNom(item._id, item.nom, item.descripcio, item.color)">
 				{{ item.nom }}
 			</mat-option>
 		</mat-autocomplete>
 	</mat-form-field>
-	<button mat-button color="warn">Elimina</button>
+	<button mat-button (click)="eliminar()" color="warn">Elimina</button>
 	<br/>
 	
     <mat-form-field>

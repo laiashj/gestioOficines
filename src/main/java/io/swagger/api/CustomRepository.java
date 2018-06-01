@@ -6,9 +6,11 @@ import io.swagger.model.Tecnic;
 
 public interface CustomRepository {
 
-    ArrayList<Tecnic> findAllBynomCognom(String nom);
+    ArrayList<Tecnic> findByNomCognom(String nom);
 
-    ArrayList<Tecnic> findAllByestat(String estat);
+    ArrayList<Tecnic> findByEstat(String estat);
 
-    ArrayList<Tecnic> getTecnicsByDataBaixa(String alta);
+    ArrayList<Tecnic> findTecnicsByDataBaixa(String alta);
+
+    ArrayList<Tecnic> findTecnicsByProjecte(String nomProjecte);
 }

@@ -22,19 +22,17 @@ export class AfegirProjecteComponent {
 	}
 	blanc:String='';
 
-	
-  
 	constructor(private tecnicService: TecnicService, public snackBar: MatSnackBar,  private _location: Location) {}
 	
 	onSubmit(){
 		this.tecnicService.addProjecte(this.projecte)
-		.subscribe(=> this.goBack())
+		.subscribe( => this.goBack());
 	}
 	
 	public goBack(){
-		this.snackBar.open('Projecte afegit correctament', 'X' {
+		this.snackBar.open('Projecte afegit correctament', 'X', {
 			duration: 3000
 		});
-		this._location.back();
+		//this._location.back();
 	}
 }

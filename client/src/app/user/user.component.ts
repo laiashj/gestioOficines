@@ -33,13 +33,12 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
 	}
 	
 	ngOnInit(){
-	this.tecnicService.getAll().subscribe(
-	data => {
-	this.filteredOptions= data;
-	};
-	
-	
-  }
+		this.tecnicService.getTecnicsNoAssignats().subscribe(
+		data => {
+			this.filteredOptions= data;
+			}
+		)
+	}
  /* setStyleProjecte(tecnic){
 	//  this.tecnicService.getProjecteByNom(tecnic.nom).subscribe(
  // data => this.projectes=data);

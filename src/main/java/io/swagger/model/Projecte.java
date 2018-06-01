@@ -31,16 +31,16 @@ public class Projecte {
         this.descripcio = descripcio;
         this.color = color;
         this.dataAlta = dataAlta;
-        this.dataBaixa = null;
+        this.dataBaixa = "alta";
     }
 
-    public Projecte(String idProjecte, String nom, String descripcio, String color, String dataAlta, String dataBaixa) {
+    public Projecte(String nom, String descripcio, String color, String dataAlta) {
         this._id = new ObjectId();
         this.nom = nom;
         this.descripcio = descripcio;
         this.color = color;
         this.dataAlta = dataAlta;
-        this.dataBaixa = dataBaixa;
+        this.dataBaixa = "alta";
     }
 
     public Projecte nom(String nom) {

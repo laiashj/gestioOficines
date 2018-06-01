@@ -37,14 +37,15 @@ public class Tecnic {
         this.lloc = lloc;
     }
 
-    public Tecnic(String nomCognom, String dataAlta, String projecte, String lloc, String color) {
+    public Tecnic(String nomCognom, String dataAlta, String projecte, String color) {
         this._id = new ObjectId();
         this.nomCognom = nomCognom;
         this.estat = "noAssignat";
         this.dataAlta = dataAlta;
         this.dataBaixa = "alta";
         this.projecte = projecte;
-        this.lloc = lloc;
+        this.lloc = "";
+        this.color = color;
     }
 
     public Tecnic nomCognom(String nomCognom) {

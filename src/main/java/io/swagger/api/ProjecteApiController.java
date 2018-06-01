@@ -1,6 +1,6 @@
 package io.swagger.api;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +30,10 @@ public class ProjecteApiController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/projectes")
     public Projecte saveProjecte(@RequestBody Projecte projecte) {
-        projecteRepository.save(projecte);
-        return projecte;
+        Projecte p = new Projecte(projecte.getNom(), projecte.getDescripcio(), projecte.getColor(),
+                projecte.getDataAlta());
+        projecteRepository.save(p);
+        return p;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/projectes/projecte/{idProjecte}")
@@ -53,23 +55,22 @@ public class ProjecteApiController {
             p.setColor(projecte.getColor());
         }
         if (projecte.getDataBaixa() != null) {
-            p.setDataBaixa(projecte.getDataBaixa());
+            p.setDataBaixa(new Date().toString());
         }
         projecteRepository.save(p);
         return projecte;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/projectes/findByNom/{nom}")
-    public List<Projecte> findProjecteByName(@PathVariable String nom) {
-        List<Projecte> p = new ArrayList<Projecte>();
-        Iterable<Projecte> tots = projecteRepository.findAll();
-        for (Projecte projecte : tots) {
-            if (projecte.getNom().contains(nom)) {
-                p.add(projecte);
-            }
-        }
+    public Projecte findProjecteByName(@PathVariable String nom) {
+        Projecte projecte = projecteRepository.findProjecteByNom(nom);
+        return projecte;
+    }
 
-        return p;
+    @RequestMapping(method = RequestMethod.GET, value = "/projectes/alta/{baixa}")
+    public List<Projecte> findProjecteAlta(@PathVariable String baixa) {
+        Iterable<Projecte> projectesAlta = projecteRepository.findProjectesByDataBaixa(baixa);
+        return (List<Projecte>) projectesAlta;
     }
 
 }
