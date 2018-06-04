@@ -26,9 +26,9 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
   projectes:any;
   
 	constructor(private user:UserService, private dragulaService: DragulaService, public tecnicService:TecnicService){
-	dragulaService.setOptions('bag-task1', {
-      removeOnSpill: true
-    });
+	//dragulaService.setOptions('bag-task1', {
+     // removeOnSpill: true
+    //});
 	
 	}
 	
