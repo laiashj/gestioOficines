@@ -66,7 +66,7 @@ export class AfegirTecnicComponent {
 	onSubmit(){
 		this.tecnic.color = this.projecte.color;
 		this.tecnicService.addTecnic(this.tecnic)
-		.subscribe( ()=> this.goBack())
+		.subscribe( ()=> this.goBack());
 		
 	}
 	
