@@ -50,7 +50,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 //import {MatPaginatorModule} from '@angular/material/paginator';
 //import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
 //         MatSortModule, MatTableModule } from "@angular/material";
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -68,6 +68,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 	ReactiveFormsModule,
 	MatCheckboxModule,
 	MatSnackBarModule,
+	MatDialogModule,
 	//MatTableModule,
 	MatListModule,
 	CdkTableModule,
@@ -90,6 +91,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 	//MatInputModule,
 	MatDatepickerModule,
 	MatSelectModule,
+	MatDialogModule,
 	MatNativeDateModule,
 	MatAutocompleteModule,
 	ReactiveFormsModule,

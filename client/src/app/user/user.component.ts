@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ElementRef} from '@angular/core';
 import { UserService} from '../user.service';
 import { Router } from '@angular/router';
 import {HeaderComponent} from '../header/header.component';
@@ -24,11 +24,14 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
  
   filteredOptions:any;	
   projectes:any;
+  htmlStr:string='<strong>The Tortoise</strong>';
   
-	constructor(private user:UserService, private dragulaService: DragulaService, public tecnicService:TecnicService){
+	constructor(private user:UserService, private dragulaService: DragulaService, public tecnicService:TecnicService
+	){
 	//dragulaService.setOptions('bag-task1', {
      // removeOnSpill: true
     //});
+	
 	
 	}
 	
@@ -38,6 +41,8 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
 			this.filteredOptions= data;
 			}
 		)
+		
+	
 	}
  /* setStyleProjecte(tecnic){
 	//  this.tecnicService.getProjecteByNom(tecnic.nom).subscribe(

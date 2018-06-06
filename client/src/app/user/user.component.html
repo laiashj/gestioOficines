@@ -14,6 +14,9 @@
   <button mat-button [matMenuTriggerFor]="projectes">Projectes</button>
     <!--<button mat-button [matMenuTriggerFor]="llocs">Llocs</button>-->
   <span class="example-spacer"></span>
+  <button mat-button class="icono">
+	<mat-icon>description</mat-icon>
+  </button>
   <button mat-button routerLink="/user" class="icono">
 	<mat-icon>home</mat-icon>
   </button>
@@ -60,12 +63,8 @@
 <div class='cont_taula'>
 <mat-card>
 	<table >
-	<!--<tr>
-		<th>124</th>
-		<th>123</th>
-	</tr>-->
 	<tr >
-		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td [innerHtml]="htmlStr" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
 		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
 		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
 		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
@@ -255,6 +254,8 @@
 	
 	</table>
 
+	
+	
         <!--<div class='container' >
 		  <div class='cadira' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></div>
 		  <div class='cadira' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></div>

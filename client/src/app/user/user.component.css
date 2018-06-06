@@ -8,6 +8,7 @@
 .container {
   display: table;
   background-color: rgba(255, 255, 255, 0.2);
+  color:white;
   width: 50%;
 }
 .container:nth-child(odd) {
@@ -24,6 +25,7 @@
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.2);
   transition: opacity 0.4s ease-in-out;
+  color:white;
 }
 .container div,
 .container tr, {
@@ -37,17 +39,22 @@
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
 }
-.container .ex-moved {
+.container .ex-moved,
+td{
   background-color: #e74c3c;
+  color:white;
 }
-.container.ex-over {
+.container.ex-over,
+td {
   background-color: rgba(255, 255, 255, 0.3);
+  color:white;
 }
 .handle {
   padding: 0 5px;
   margin-right: 5px;
   background-color: rgba(0, 0, 0, 0.4);
   cursor: move;
+  color:white;
 }
 nested-repeat-example .container th {
   display: block;
@@ -57,7 +64,7 @@ nested-repeat-example .container th {
 	float:left;
 	position:absolute;
 	padding-right:100px;
-	padding-left:100px;
+	padding-left:50px;
 	
 }
 .cont1{
@@ -79,10 +86,11 @@ table{
 }
 th,td{
 	
-	width:70px;
+	width:65px;
 	height:35px;
 }
 .blanc{
 	border: 1px solid black;
 }
+
 
