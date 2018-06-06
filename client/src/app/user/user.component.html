@@ -33,24 +33,20 @@
 </mat-menu>
 
 </div>
-<br/>
-<br/>
 <div class='contenidor'>
 <div class='cont1'>
 <mat-card class='cerca'>
-<mat-form-field>
-    <input matInput placeholder="Nom"  name ="nom" >
-  </mat-form-field>
+
+<h3>Tecnics sense lloc</h3>
 
         <div class='container' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
           <div *ngFor="let item of filteredOptions" [style.background-color]="item.color" >
             <span>{{item.nomCognom}}</span>
           </div>
         </div>
+		<br/>
 		  </mat-card>
 </div>
-<br/>
-<br/>
 <!--<div class='cont_taula'>
 <table>
 <tbody class='container' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
@@ -60,15 +56,215 @@
 </tbody>
 </table>
 </div>-->
+
 <div class='cont_taula'>
-        <div class='container' >
-          <div class='taula' >   
+<mat-card>
+	<table >
+	<!--<tr>
+		<th>124</th>
+		<th>123</th>
+	</tr>-->
+	<tr >
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td ></td>
+		<td></td>
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+	</tr>
+	<tr >
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td ></td>
+		<td></td>
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+	</tr>
+	<br/>
+	<tr >
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td ></td>
+		<td></td>
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+	</tr>
+	<tr>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td ></td>
+		<td></td>
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+	</tr>
+	<br/>
+	<tr>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+	</tr>
+	<tr>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td ></td>
+		<td></td>
+	</tr>
+	<br/>
+	<tr >
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td ></td>
+		<td></td>
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+	</tr>
+	<tr >
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td ></td>
+		<td></td>
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+	</tr>
+	<br/><tr >
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td ></td>
+		<td></td>
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+	</tr>
+	<tr >
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td ></td>
+		<td></td>
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+	</tr>
+	<br/><tr >
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td ></td>
+		<td></td>
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+	</tr>
+	<tr >
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td ></td>
+		<td></td>
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+	</tr>
+	<br/><tr >
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td ></td>
+		<td></td>
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+	</tr>
+	<tr >
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td ></td>
+		<td></td>
+		<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+		<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
+	</tr>
+	<br/>
+	
+	</table>
+
+        <!--<div class='container' >
 		  <div class='cadira' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></div>
 		  <div class='cadira' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></div>
-		  <div class='cadira' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></div>
-		  </div>
-		  
+		  <div class='cadira' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></div> 
         </div>
+		<div class='container' >
+		<div class='cadira' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></div>
+		</div>-->
+
+</mat-card>
 </div>
 </div>
 <br/>
