@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
@@ -56,10 +55,7 @@ export class ModificarProjecteComponent  {
 	
 	public onSubmit(){
 		this.tecnicService.updateProjecte(this.projecte)
-		.subscribe(() => this.goBack("Projecte modificat correctament"));
-		
-		
-		
+		.subscribe(() => this.cridarF("Projecte modificat correctament"));
 	}
 	
 	public eliminar(){
@@ -68,35 +64,22 @@ export class ModificarProjecteComponent  {
 			dataBaixa: "avui"
 		}
 		this.tecnicService.updateProjecte(this.pro)
-		.subscribe(() => this.goBack("projecte eliminat correctament"));
+		.subscribe(() => this.cridarF("projecte eliminat correctament"));
 	}
-	private cridarF(m:string){		
-		
-		this.modificarTecnics();
+	private cridarF(m:string){
 		this.goBack(m);
+		this.modificarTecnics();
 	};
 	private goBack(m: string){
-
 		this.snackBar.open(m, 'X',{
 			duration: 3000
 		});
-		
-		this.tecnicService.getTecnicByProjecte(this.nom).subscribe(
-		data => {
-			this.tecnics= data;
-			}
-		)
-		this.tecnics.forEach((element) =>{
-			element.projecte= this.projecte.nom;
-			element.color=this.projecte.color;
-			this.tecnicService.updateTecnic(element)
-			.subscribe();
-		});
+		//this.modificarTecnics();
 		//this._location.back();
 		this.nom = null;
 		this.descripcio = null;
 		this.color = null;
-	} 
+	}
 
 	public mostrarNom(id, nom, descripcio, color ) {
 		this.projecte={
@@ -112,9 +95,17 @@ export class ModificarProjecteComponent  {
 	}
 	
 	public modificarTecnics(){
-		
-		
-	
+		this.tecnicService.getTecnicByProjecte(this.nom).subscribe(
+		data => {
+			this.tecnics= data;
+			}
+		)
+		this.tecnics.forEach((t) =>{
+			t.projecte= this.projecte.nom;
+			t.color=this.projecte.color;
+			this.tecnicService.updateTecnic(t)
+			.subscribe(() => this.goBack("tècnics modificats correctament"));
+		}); 
 	}
 	
 }

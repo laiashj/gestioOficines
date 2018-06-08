@@ -8,7 +8,7 @@
 .container {
   display: table;
   background-color: rgba(255, 255, 255, 0.2);
-  color:white;
+  color:black;
   width: 50%;
 }
 .container:nth-child(odd) {
@@ -25,7 +25,7 @@
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.2);
   transition: opacity 0.4s ease-in-out;
-  color:white;
+  color:black;
 }
 .container div,
 .container tr, {
@@ -42,19 +42,19 @@
 .container .ex-moved,
 td{
   background-color: #e74c3c;
-  color:white;
+  color:black;
 }
 .container.ex-over,
 td {
   background-color: rgba(255, 255, 255, 0.3);
-  color:white;
+  color:black;
 }
 .handle {
   padding: 0 5px;
   margin-right: 5px;
   background-color: rgba(0, 0, 0, 0.4);
   cursor: move;
-  color:white;
+  color:black;
 }
 nested-repeat-example .container th {
   display: block;

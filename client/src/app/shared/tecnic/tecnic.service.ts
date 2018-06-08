@@ -30,8 +30,8 @@ export class TecnicService {
 		return this.http.get<any>(this.TEC_API+'/alta/alta');
 	}
 	
-	getTecnicsNoAssignats():Observable<any[]>{
-		return this.http.get<any>(this.TEC_API+'/estat/noAssignat');
+	getTecnicsEstat(estat):Observable<any[]>{
+		return this.http.get<any>(this.TEC_API+'/estat/' + estat);
 	}
 	
 	getTecnicByProjecte(nomProjecte):Observable<any[]>{
