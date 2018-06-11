@@ -23,13 +23,14 @@ import { CommonModule } from '@angular/common';
 export class UserComponent implements OnInit/*, AfterViewInit*/{
  
 	filteredOptions:any;
-	assignats: Array<Object>;
+	assignats: any;
 	htmlStr:string='<strong>The Tortoise</strong>';
 	tec={
 		nomCognom:"Laura Castillo",
 		dataAlta:"",
 		color: "purple"
 	};
+	tecnic1:string;
 	
 	tec1:string= "<div [style.background-color]=\"tec.color\" > {{tec.nomCognom}}</div>";
 	llocs = {
@@ -40,8 +41,8 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
 		l5: "", 
 		l6: ""
 	};
-	i : int = 0;
-	j : int = 0;
+	//i : int = 0;
+	//j : int = 0;
 	
 	//130 taules
 	
@@ -56,19 +57,20 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
 			}
 		);
 		
-		this.tecnicService.getTecnicsEstat('assignat').subscribe(
+		this.tecnicService.getTecnicsEstat('Assignat').subscribe(
 			data => {
 				this.assignats= data;
 			}
 		);
-		
-		this.llocs.l1 = assignats[0];
+		//this.tecnic1="{{assignats && assignats[0].nomCognom}}";
+		/*this.llocs.l1 = assignats[0];
 		this.llocs.l2 = assignats[1];
 		this.llocs.l3 = assignats[2];
 		this.llocs.l4 = assignats[3];
 		this.llocs.l5 = assignats[4];
-		this.llocs.l6 = assignats[5];
+		this.llocs.l6 = assignats[5];*/
 	}
+	
 	
 	
 	/*public visualitzaTec(){
