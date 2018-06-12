@@ -55,29 +55,40 @@
 		<mat-card>
 			<table >
 				<tr >
-					<td style="color: black" class="blanc"[dragula]='"bag-task2"'[dragulaModel]='filteredOptions' > 
-					<span>{{assignats && assignats[0].nomCognom}}</span>
+					<td  class="blanc"[dragula]='"bag-task2"' > 
+						<div [style.background-color]="assignats[0].color" > 
+							{{assignats[0].nomCognom}}
+						</div>
 					</td>
 					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-							<span>1</span>				
+						<div [style.background-color]="assignats[1].color" > 
+							{{assignats[1].nomCognom}}
+						</div>					
 					</td>
 					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-										<span>2</span>	
+						<div [style.background-color]="assignats[2].color" > 
+							{{assignats[2].nomCognom}}
+						</div>					
 					</td>
 					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<span>3</span>
+						<div [style.background-color]="assignats[3].color" > 
+								{{assignats[3].nomCognom}}
+						</div>
 					</td>
-					<td style="color: black" [innerHtml]="htmlStr" class="blanc" [dragula]='"bag-task2"' ></td>
-					<!--Aquests 2 td son el passadis -->
+					<td [innerHtml]="htmlStr" class="blanc" [dragula]='"bag-task2"' ></td>
 					<td ></td>
 					<td></td>
 					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						
+						<div [style.background-color]="assignats[5].color" > 
+								{{assignats[5].nomCognom}}
+						</div>
 					</td>
 					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
 					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
 					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-					
+					<div [style.background-color]="assignats[6].color" > 
+							{{assignats[6].nomCognom}}
+						</div>
 					</td>
 					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'></td>
 				</tr>
@@ -262,6 +273,7 @@
 		</mat-card>
 	</div>
 </div>
+
 <router-outlet></router-outlet>
 
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->	
