@@ -34,6 +34,10 @@ export class TecnicService {
 		return this.http.get<any>(this.TEC_API+'/estat/' + estat);
 	}
 	
+	getTecnicsEstatOrder(estat):Observable<any[]>{
+		return this.http.get<any>(this.TEC_API+'/estat/order/' + estat);
+	}
+	
 	getTecnicByProjecte(nomProjecte):Observable<any[]>{
 		return this.http.get<any>(this.TEC_API+'/projecte/'+nomProjecte);
 	}

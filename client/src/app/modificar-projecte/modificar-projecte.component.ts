@@ -22,7 +22,7 @@ export class ModificarProjecteComponent  {
 	id:String='';
 	color:String = '';
 	filteredOptions:Observable<any[]>;
-	tecnics:Array<Object>;
+	tecnics:Array<Object> = new Array();
 	
 	projecte = {
 		_id:"",
@@ -43,7 +43,7 @@ export class ModificarProjecteComponent  {
           })       
         );
 	}
-		
+	/**Mètode que filtra els tècnics d'alta per text val = text introduit ala caixa del nom*/	
 	filter(val: string): Observable<any[]> {
 		return this.tecnicService.getProjectesAlta()
 		.pipe(
@@ -52,12 +52,12 @@ export class ModificarProjecteComponent  {
 			}))
 		)
 	}
-	
+	/**Mètode del botó modificar */
 	public onSubmit(){
 		this.tecnicService.updateProjecte(this.projecte)
 		.subscribe(() => this.cridarF("Projecte modificat correctament"));
 	}
-	
+	/**Mètode del botó eliminar*/
 	public eliminar(){
 		this.pro={
 			_id: this.id,
@@ -66,21 +66,22 @@ export class ModificarProjecteComponent  {
 		this.tecnicService.updateProjecte(this.pro)
 		.subscribe(() => this.cridarF("projecte eliminat correctament"));
 	}
+	/**Mètode que crida les funcions que son necessaries després de modificar projecte*/
 	private cridarF(m:string){
-		this.goBack(m);
+		this.goBack(m);	
+		this.getTecnicsProjecte();
 		this.modificarTecnics();
 	};
+	/**Mètode que buida les caselles i mostra l'snackBar*/
 	private goBack(m: string){
 		this.snackBar.open(m, 'X',{
 			duration: 3000
 		});
-		//this.modificarTecnics();
-		//this._location.back();
-		this.nom = null;
+		//this.nom = null;
 		this.descripcio = null;
 		this.color = null;
 	}
-
+	/**Mètode que agafa les dades de l'objecte projecte seleccionat i les mostra a les caixes de text Arguments id, nom, descripció, color del projecte a modificar*/
 	public mostrarNom(id, nom, descripcio, color ) {
 		this.projecte={
 			_id: id,
@@ -94,12 +95,17 @@ export class ModificarProjecteComponent  {
 		this.id = id;
 	}
 	
-	public modificarTecnics(){
+	/**Mètode que recupera els tècnics que estan assignats al projecte que s'està modificant*/
+	public getTecnicsProjecte(){
 		this.tecnicService.getTecnicByProjecte(this.nom).subscribe(
 		data => {
 			this.tecnics= data;
 			}
 		)
+	};
+	/**Mètode que modifica els tècnics que estan assignats al projecte modificat*/
+	public modificarTecnics(){
+		
 		this.tecnics.forEach((t) =>{
 			t.projecte= this.projecte.nom;
 			t.color=this.projecte.color;

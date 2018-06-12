@@ -26,20 +26,13 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
 	assignats: Array<Object>;
 	htmlStr:string='<strong>The Tortoise</strong>';
 	tec={
-		nomCognom:"Laura Castillo",
+		nomCognom:"",
 		dataAlta:"",
-		color: "purple"
+		color: "white"
 	};
 	
 	tec1:string= "<div [style.background-color]=\"tec.color\" > {{tec.nomCognom}}</div>";
-	llocs = {
-		l1: "", 
-		l2: "", 
-		l3: "",
-		l4: "",
-		l5: "", 
-		l6: ""
-	};
+	lloc : Array<Object>;
 	i : int = 0;
 	j : int = 0;
 	
@@ -47,29 +40,58 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
 	
 	constructor(private user:UserService, private dragulaService: DragulaService, public tecnicService:TecnicService){
 		/*dragulaService.setOptions('bag-task1',{removeOnSpill: true});*/
-	}
-	
-	ngOnInit(){
 		this.tecnicService.getTecnicsEstat('noAssignat').subscribe(
 			data => {
 				this.filteredOptions= data;
 			}
 		);
 		
-		this.tecnicService.getTecnicsEstat('assignat').subscribe(
+		this.tecnicService.getTecnicsEstatOrder('assignat').subscribe(
 			data => {
 				this.assignats= data;
 			}
 		);
-		
-		this.llocs.l1 = assignats[0];
-		this.llocs.l2 = assignats[1];
-		this.llocs.l3 = assignats[2];
-		this.llocs.l4 = assignats[3];
-		this.llocs.l5 = assignats[4];
-		this.llocs.l6 = assignats[5];
 	}
 	
+	ngOnInit(){
+		
+		this.tecnicService.getTecnicsEstat('noAssignat').subscribe(
+			data => {
+				this.filteredOptions= data;
+			}
+		);
+		
+		this.tecnicService.getTecnicsEstatOrder('assignat').subscribe(
+			data => {
+				this.assignats= data;
+				this.visualitzaTec();
+			}
+		);
+		
+		/*this.tecnicService.getTecnicsEstatOrder('assignat').subscribe(
+			data => {
+				this.assignats= data;
+			}
+		);*/
+		
+		
+	
+	}
+	
+	public visualitzaTec(){
+		
+		this.lloc = [];
+		
+		for (var _i = 0; _i < 130; _i++) {
+			let loc =  +this.assignats[this.j].lloc;
+			if(loc == _i){
+				this.lloc[_i] = this.assignats[this.j];
+				this.j++;
+			}else{
+				this.lloc[_i] = this.tec;
+			}
+		}
+	}
 	
 	/*public visualitzaTec(){
 		this.llocs.forEach((l) =>{
