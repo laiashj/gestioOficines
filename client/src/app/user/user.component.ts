@@ -35,22 +35,77 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
 	lloc : Array<Object>;
 	i : int = 0;
 	j : int = 0;
+	tec={};
+	tec2={};
+	id:Array<any>;
+	id_source:Array<any>;
 	
 	//130 taules
 	
 	constructor(private user:UserService, private dragulaService: DragulaService, public tecnicService:TecnicService){
 		/*dragulaService.setOptions('bag-task1',{removeOnSpill: true});*/
-		this.tecnicService.getTecnicsEstat('noAssignat').subscribe(
-			data => {
-				this.filteredOptions= data;
-			}
-		);
+		dragulaService.drop.subscribe(value => {
+			 let [bagName, el, target, source] = value;
+			 //console.log('id target: '+target.getAttribute('id')
+			// console.log('id el: '+el.getAttribute('item-id')
+			 this.id=target.getAttribute('id').split(",");
+			 this.id_source=source.getAttribute('id').split(",");
+			 if((this.id_source==="divAssignat")&&(this.id==="divAssignat")){
+				 this.tec{ //Tecnic del source
+					 _id : el.getAttribute('item-id'),										
+					lloc:this.id[1]
+					};
+				this.tec2{
+					 _id : el.getAttribute('item-id'),										
+					lloc:this.id_source[1]
+					};
+				 this.tecnicService.updateTecnic(this.tec).subscribe();	
+				 this.tecnicService.updateTecnic(this.tec2).subscribe();	
+				this.tec={};
+				this.tec2={};
+			 }
+			 
+			 if(this.id[0]==="divNoAssignats"){
+				//Modificar valor a noAssignat i buidar array lloc	
+					
+				this.tec={
+					_id : el.getAttribute('item-id'),					
+					estat: "noAssignat",
+					lloc:""
+					};
+				this.tecnicService.updateTecnic(this.tec).subscribe();	
+				this.tec={};
+			 }
+			 if(this.id[0]==="divAssignat"){
+				 if((this.id[1]>=0) &&(this.id[1]<=9)){
+				 this.tec={
+					 _id : el.getAttribute('item-id'),					
+					estat: "assignat",
+					lloc:  '00'+this.id[1];
+					};
+				 }
+				  if((this.id[1]>=10) &&(this.id[1]<=99)){
+				 this.tec={
+					 _id : el.getAttribute('item-id'),					
+					estat: "assignat",
+					lloc:  '0'+this.id[1];
+					};
+				 }
+				 if((this.id[1]>=100) &&(this.id[1]<=129)){
+				 this.tec={
+					 _id : el.getAttribute('item-id'),					
+					estat: "assignat",
+					lloc:  +this.id[1];
+					};
+				 }
+				this.tecnicService.updateTecnic(this.tec).subscribe();	
+				this.tec={};
+			 }
+			 
+		});
+				 
 		
-		this.tecnicService.getTecnicsEstatOrder('assignat').subscribe(
-			data => {
-				this.assignats= data;
-			}
-		);
+		
 	}
 	
 	ngOnInit(){
@@ -68,11 +123,7 @@ export class UserComponent implements OnInit/*, AfterViewInit*/{
 			}
 		);
 		
-		/*this.tecnicService.getTecnicsEstatOrder('assignat').subscribe(
-			data => {
-				this.assignats= data;
-			}
-		);*/
+		
 		
 		
 	

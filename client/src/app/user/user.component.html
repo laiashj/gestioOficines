@@ -42,9 +42,11 @@
 
 			<h3>Tecnics sense lloc</h3>
 
-			<div class='container' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-				<div *ngFor="let item of filteredOptions" [style.background-color]="item.color" >
-					<span>{{item.nomCognom}}</span>
+			<div id="divNoAssignats" class='container' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
+			
+				<div   *ngFor="let item of filteredOptions" [style.background-color]="item.color" matTooltip="item.projecte" [attr.item-id]="item._id" >
+					<ng-template #tipContent>{{item.projecte}}</ng-template>
+					<span [ngbTooltip]="tipContent">{{item.nomCognom}}</span>
 				</div>
 			</div>
 			<br/>
@@ -55,273 +57,273 @@
 		<mat-card>
 			<table>
 				<tr >
-					<td  class="blanc"[dragula]='"bag-task2"' > 
-						<div [style.background-color]="lloc[0].color" > 
+					<td id="divAssignat,0" class="blanc"[dragula]='"bag-task2"' [dragulaModel]="lloc" > 
+						<div [style.background-color]="lloc[0].color" [attr.item-id]="lloc[0]._id"> 
 							{{lloc[0].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[1].color" > 
+					<td id="divAssignat,1" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc' >
+						<div [style.background-color]="lloc[1].color" [attr.item-id]="lloc[1]._id" > 
 							{{lloc[1].nomCognom}}
 						</div>					
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[2].color" > 
+					<td id="divAssignat,2" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[2].color" [attr.item-id]="lloc[2]._id"> 
 							{{lloc[2].nomCognom}}
 						</div>					
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[3].color" > 
+					<td id="divAssignat,3"class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[3].color"[attr.item-id]="lloc[3]._id" > 
 							{{lloc[3].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[4].color" > 
+					<td id="divAssignat,4"class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[4].color" [attr.item-id]="lloc[4]._id"> 
 							{{lloc[4].nomCognom}}
 						</div>
 					</td>
 					<td ></td>
 					<td></td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[5].color" > 
+					<td id="divAssignat,5"class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[5].color" [attr.item-id]="lloc[5]._id" > 
 							{{lloc[5].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[6].color" > 
+					<td id="divAssignat,6"class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[6].color" [attr.item-id]="lloc[6]._id"> 
 							{{lloc[6].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[7].color" > 
+					<td id="divAssignat,7"class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[7].color" [attr.item-id]="lloc[7]._id"> 
 							{{lloc[7].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[8].color" > 
+					<td id="divAssignat,8"class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[8].color" [attr.item-id]="lloc[8]._id"> 
 							{{lloc[8].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[9].color" > 
+					<td id="divAssignat,9" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[9].color"  [attr.item-id]="lloc[9]._id"> 
 							{{lloc[9].nomCognom}}
 						</div>
 					</td>
 				</tr>
 				<tr >
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[10].color" > 
+					<td id="divAssignat,10"class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[10].color"  [attr.item-id]="lloc[10]._id"> 
 							{{lloc[10].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[11].color" > 
+					<td id="divAssignat,11" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[11].color"  [attr.item-id]="lloc[11]._id" > 
 							{{lloc[11].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[12].color" > 
+					<td id="divAssignat,12" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[12].color"  [attr.item-id]="lloc[12]._id"> 
 							{{lloc[12].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[13].color" > 
+					<td id="divAssignat,13" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[13].color"  [attr.item-id]="lloc[13]._id"> 
 							{{lloc[13].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[14].color" > 
+					<td id="divAssignat,14" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[14].color"  [attr.item-id]="lloc[14]._id"> 
 							{{lloc[14].nomCognom}}
 						</div>
 					</td>
 					<td ></td>
 					<td></td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[15].color" > 
+					<td id="divAssignat,15" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[15].color"  [attr.item-id]="lloc[15]._id"> 
 							{{lloc[15].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[16].color" > 
+					<td id="divAssignat,16" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[16].color"  [attr.item-id]="lloc[16]._id"> 
 							{{lloc[16].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[17].color" > 
+					<td id="divAssignat,17" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[17].color" [attr.item-id]="lloc[17]._id" > 
 							{{lloc[17].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[18].color" > 
+					<td id="divAssignat,18" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[18].color"  [attr.item-id]="lloc[18]._id"> 
 							{{lloc[18].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[19].color" > 
+					<td id="divAssignat,19" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[19].color"  [attr.item-id]="lloc[19]._id"> 
 							{{lloc[19].nomCognom}}
 						</div>
 					</td>
 				</tr>
 				<br/>
 				<tr >
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[20].color" > 
+					<td id="divAssignat,20" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[20].color"  [attr.item-id]="lloc[20]._id"> 
 							{{lloc[20].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[21].color" > 
+					<td id="divAssignat,21" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[21].color" [attr.item-id]="lloc[21]._id" > 
 							{{lloc[21].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[22].color" > 
+					<td id="divAssignat,22" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[22].color"  [attr.item-id]="lloc[22]._id"> 
 							{{lloc[22].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[23].color" > 
+					<td id="divAssignat,23" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[23].color"  [attr.item-id]="lloc[23]._id"> 
 							{{lloc[23].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[24].color" > 
+					<td id="divAssignat,24" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[24].color"  [attr.item-id]="lloc[24]._id"> 
 							{{lloc[24].nomCognom}}
 						</div>
 					</td>
 					<td ></td>
 					<td></td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[25].color" > 
+					<td id="divAssignat,25" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[25].color"  [attr.item-id]="lloc[25]._id"> 
 							{{lloc[25].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[26].color" > 
+					<td id="divAssignat,26" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[26].color"  [attr.item-id]="lloc[26]._id"> 
 							{{lloc[26].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[27].color" > 
+					<td id="divAssignat,27" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[27].color" [attr.item-id]="lloc[27]._id" > 
 							{{lloc[27].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[28].color" > 
+					<td id="divAssignat,28" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[28].color"  [attr.item-id]="lloc[28]._id"> 
 							{{lloc[28].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[29].color" > 
+					<td id="divAssignat,29" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[29].color" [attr.item-id]="lloc[29]._id" > 
 							{{lloc[29].nomCognom}}
 						</div>
 					</td>
 				</tr>
 				<tr>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[30].color" > 
+					<td id="divAssignat,30" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[30].color"  [attr.item-id]="lloc[30]._id"> 
 							{{lloc[30].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[31].color" > 
+					<td id="divAssignat,31" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[31].color"  [attr.item-id]="lloc[31]._id"> 
 							{{lloc[31].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[32].color" > 
+					<td id="divAssignat,32" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[32].color"  [attr.item-id]="lloc[32]._id"> 
 							{{lloc[32].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[33].color" > 
+					<td id="divAssignat,33" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[33].color"  [attr.item-id]="lloc[33]._id"> 
 							{{lloc[33].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[34].color" > 
+					<td id="divAssignat,34" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[34].color"  [attr.item-id]="lloc[34]._id"> 
 							{{lloc[34].nomCognom}}
 						</div>
 					</td>
 					<td ></td>
 					<td></td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[35].color" > 
+					<td id="divAssignat,35" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[35].color"  [attr.item-id]="lloc[35]._id"> 
 							{{lloc[35].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[36].color" > 
+					<td id="divAssignat,36" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[36].color"  [attr.item-id]="lloc[36]._id"> 
 							{{lloc[36].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[37].color" > 
+					<td id="divAssignat,37" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[37].color"  [attr.item-id]="lloc[37]._id"> 
 							{{lloc[37].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[38].color" > 
+					<td id="divAssignat,38" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[38].color"  [attr.item-id]="lloc[38]._id"> 
 							{{lloc[38].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[39].color" > 
+					<td id="divAssignat,39" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[39].color"  [attr.item-id]="lloc[39]._id"> 
 							{{lloc[39].nomCognom}}
 						</div>
 					</td>
 				</tr>
 				<br/>
 				<tr>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[40].color" > 
+					<td id="divAssignat,40" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[40].color"  [attr.item-id]="lloc[40]._id"> 
 							{{lloc[40].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[41].color" > 
+					<td id="divAssignat,41" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[41].color"  [attr.item-id]="lloc[41]._id"> 
 							{{lloc[41].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[42].color" > 
+					<td id="divAssignat,42" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[42].color"  [attr.item-id]="lloc[42]._id"> 
 							{{lloc[42].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[43].color" > 
+					<td id="divAssignat,43" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[43].color"  [attr.item-id]="lloc[43]._id"> 
 							{{lloc[43].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[44].color" > 
+					<td id="divAssignat,44" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[44].color"  [attr.item-id]="lloc[44]._id"> 
 							{{lloc[44].nomCognom}}
 						</div>
 					</td>
 				</tr>
 				<tr>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[5].color" > 
+					<td id="divAssignat,45" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[5].color"  [attr.item-id]="lloc[45]._id"> 
 							{{lloc[45].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[46].color" > 
+					<td id="divAssignat,46" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[46].color"  [attr.item-id]="lloc[46]._id"> 
 							{{lloc[46].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[47].color" > 
+					<td id="divAssignat,47" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[47].color"  [attr.item-id]="lloc[47]._id"> 
 							{{lloc[47].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[48].color" > 
+					<td id="divAssignat,48" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[48].color"  [attr.item-id]="lloc[48]._id"> 
 							{{lloc[48].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[49].color" > 
+					<td id="divAssignat,49" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[49].color"  [attr.item-id]="lloc[49]._id"> 
 							{{lloc[49].nomCognom}}
 						</div>
 					</td>
@@ -330,435 +332,435 @@
 				</tr>
 				<br/>
 				<tr >
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[50].color" > 
+					<td id="divAssignat,50" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[50].color"  [attr.item-id]="lloc[50]._id"> 
 							{{lloc[50].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[51].color" > 
+					<td id="divAssignat,51" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[51].color"  [attr.item-id]="lloc[51]._id"> 
 							{{lloc[51].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-					<div [style.background-color]="lloc[52].color" > 
+					<td id="divAssignat,52" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+					<div [style.background-color]="lloc[52].color"  [attr.item-id]="lloc[52]._id"> 
 							{{lloc[52].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[53].color" > 
+					<td id="divAssignat,53" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[53].color"  [attr.item-id]="lloc[53]._id"> 
 							{{lloc[53].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[54].color" > 
+					<td id="divAssignat,54" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[54].color"  [attr.item-id]="lloc[54]._id"> 
 							{{lloc[54].nomCognom}}
 						</div>
 					</td>
 					<td ></td>
 					<td></td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[55].color" > 
+					<td id="divAssignat,55" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[55].color"  [attr.item-id]="lloc[55]._id"> 
 							{{lloc[55].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[56].color" > 
+					<td id="divAssignat,56" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[56].color"  [attr.item-id]="lloc[56]._id"> 
 							{{lloc[56].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[57].color" > 
+					<td id="divAssignat,57" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[57].color"  [attr.item-id]="lloc[57]._id"> 
 							{{lloc[57].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[58].color" > 
+					<td id="divAssignat,58" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[58].color"  [attr.item-id]="lloc[58]._id"> 
 							{{lloc[58].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[59].color" > 
+					<td id="divAssignat,59" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[59].color"  [attr.item-id]="lloc[59]._id"> 
 							{{lloc[59].nomCognom}}
 						</div>
 					</td>
 				</tr>
 				<tr >
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[60].color" > 
+					<td id="divAssignat,60" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[60].color"  [attr.item-id]="lloc[60]._id"> 
 							{{lloc[60].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[61].color" > 
+					<td id="divAssignat,61" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[61].color"  [attr.item-id]="lloc[61]._id"> 
 							{{lloc[61].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[62].color" > 
+					<td id="divAssignat,62" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[62].color"  [attr.item-id]="lloc[62]._id"> 
 							{{lloc[62].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[63].color" > 
+					<td id="divAssignat,63" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[63].color"  [attr.item-id]="lloc[63]._id"> 
 							{{lloc[63].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[64].color" > 
+					<td id="divAssignat,64" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[64].color"  [attr.item-id]="lloc[64]._id"> 
 							{{lloc[64].nomCognom}}
 						</div>
 					</td>
 					<td ></td>
 					<td></td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[65].color" > 
+					<td id="divAssignat,65" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[65].color"  [attr.item-id]="lloc[65]._id"> 
 							{{lloc[65].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[66].color" > 
+					<td id="divAssignat,66" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[66].color"  [attr.item-id]="lloc[66]._id"> 
 							{{lloc[66].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[67].color" > 
+					<td id="divAssignat,67" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[67].color"  [attr.item-id]="lloc[67]._id"> 
 							{{lloc[67].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[68].color" > 
+					<td id="divAssignat,68" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[68].color"  [attr.item-id]="lloc[68]._id"> 
 							{{lloc[68].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[69].color" > 
+					<td id="divAssignat,69" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[69].color"  [attr.item-id]="lloc[69]._id"> 
 							{{lloc[69].nomCognom}}
 						</div>
 					</td>
 				</tr>
 				<br/>
 				<tr>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[70].color" > 
+					<td id="divAssignat,70" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[70].color"  [attr.item-id]="lloc[70]._id"> 
 							{{lloc[70].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[71].color" > 
+					<td id="divAssignat,71" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[71].color"  [attr.item-id]="lloc[71]._id"> 
 							{{lloc[71].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[72].color" > 
+					<td id="divAssignat,72" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[72].color"  [attr.item-id]="lloc[72]._id"> 
 							{{lloc[72].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[73].color" > 
+					<td id="divAssignat,73" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[73].color"  [attr.item-id]="lloc[73]._id"> 
 							{{lloc[73].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[74].color" > 
+					<td id="divAssignat,74" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[74].color"  [attr.item-id]="lloc[74]._id"> 
 							{{lloc[74].nomCognom}}
 						</div>
 					</td>
 					<td ></td>
 					<td></td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[75].color" > 
+					<td id="divAssignat,75" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[75].color"  [attr.item-id]="lloc[75]._id"> 
 							{{lloc[75].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[76].color" > 
+					<td id="divAssignat,76" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[76].color"  [attr.item-id]="lloc[76]._id"> 
 							{{lloc[76].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[77].color" > 
+					<td id="divAssignat,77" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[77].color"  [attr.item-id]="lloc[77]._id"> 
 							{{lloc[77].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[78].color" > 
+					<td id="divAssignat,78" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[78].color"  [attr.item-id]="lloc[78]._id"> 
 							{{lloc[78].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[79].color" > 
+					<td id="divAssignat,79" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[79].color"  [attr.item-id]="lloc[79]._id"> 
 							{{lloc[79].nomCognom}}
 						</div>
 					</td>
 				</tr>
 				<tr>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-					<div [style.background-color]="lloc[80].color" > 
+					<td id="divAssignat,80" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+					<div [style.background-color]="lloc[80].color"  [attr.item-id]="lloc[80]._id"> 
 							{{lloc[80].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[81].color" > 
+					<td id="divAssignat,81" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[81].color"  [attr.item-id]="lloc[81]._id"> 
 							{{lloc[81].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[82].color" > 
+					<td id="divAssignat,82" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[82].color"  [attr.item-id]="lloc[82]._id"> 
 							{{lloc[82].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[83].color" > 
+					<td id="divAssignat,83" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[83].color"  [attr.item-id]="lloc[83]._id"> 
 							{{lloc[83].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[84].color" > 
+					<td id="divAssignat,84" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[84].color"  [attr.item-id]="lloc[84]._id"> 
 							{{lloc[84].nomCognom}}
 						</div>
 					</td>
 					<td ></td>
 					<td></td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[85].color" > 
+					<td id="divAssignat,85" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[85].color"  [attr.item-id]="lloc[85]._id"> 
 							{{lloc[85].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[86].color" > 
+					<td id="divAssignat,86" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[86].color"  [attr.item-id]="lloc[86]._id"> 
 							{{lloc[86].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[87].color" > 
+					<td id="divAssignat,87" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[87].color" [attr.item-id]="lloc[87]._id" > 
 							{{lloc[87].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[88].color" > 
+					<td id="divAssignat,88" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[88].color"  [attr.item-id]="lloc[88]._id"> 
 							{{lloc[88].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[89].color" > 
+					<td id="divAssignat,89" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[89].color"  [attr.item-id]="lloc[89]._id"> 
 							{{lloc[89].nomCognom}}
 						</div>
 					</td>
 				</tr>
 				<br/>
 				<tr >
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[90].color" > 
+					<td id="divAssignat,90" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[90].color"  [attr.item-id]="lloc[90]._id"> 
 							{{lloc[90].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[91].color" > 
+					<td id="divAssignat,91" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[91].color"  [attr.item-id]="lloc[91]._id"> 
 							{{lloc[91].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[92].color" > 
+					<td id="divAssignat,92" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[92].color"  [attr.item-id]="lloc[92]._id"> 
 							{{lloc[92].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[93].color" > 
+					<td id="divAssignat,93" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[93].color"  [attr.item-id]="lloc[93]._id"> 
 							{{lloc[93].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[94].color" > 
+					<td id="divAssignat,94" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[94].color"  [attr.item-id]="lloc[94]._id"> 
 							{{lloc[94].nomCognom}}
 						</div>
 					</td>
 					<td ></td>
 					<td></td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[95].color" > 
+					<td id="divAssignat,95" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[95].color"  [attr.item-id]="lloc[95]._id"> 
 							{{lloc[95].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[96].color" > 
+					<td id="divAssignat,96" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[96].color"  [attr.item-id]="lloc[96]._id"> 
 							{{lloc[96].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[97].color" > 
+					<td id="divAssignat,97" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[97].color" [attr.item-id]="lloc[97]._id"> 
 							{{lloc[97].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[98].color" > 
+					<td id="divAssignat,98" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[98].color"  [attr.item-id]="lloc[98]._id"> 
 							{{lloc[98].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[99].color" > 
+					<td id="divAssignat,99" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[99].color"  [attr.item-id]="lloc[99]._id"> 
 							{{lloc[99].nomCognom}}
 						</div>
 					</td>
 				</tr>
 				<tr>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-					<div [style.background-color]="lloc[100].color" > 
+					<td id="divAssignat,100" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+					<div [style.background-color]="lloc[100].color"  [attr.item-id]="lloc[100]._id"> 
 							{{lloc[100].nomCognom}}
 						</div></td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[101].color" > 
+					<td id="divAssignat,101" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[101].color"  [attr.item-id]="lloc[101]._id"> 
 							{{lloc[101].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[102].color" > 
+					<td id="divAssignat,102"  class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[102].color"  [attr.item-id]="lloc[102]._id"> 
 							{{lloc[102].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-					<div [style.background-color]="lloc[103].color" > 
+					<td id="divAssignat,103" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+					<div [style.background-color]="lloc[103].color"  [attr.item-id]="lloc[103]._id"> 
 							{{lloc[103].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[104].color" > 
+					<td id="divAssignat,104" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[104].color"  [attr.item-id]="lloc[104]._id"> 
 							{{lloc[104].nomCognom}}
 						</div>
 					</td>
 					<td ></td>
 					<td></td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[105].color" > 
+					<td id="divAssignat,105" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[105].color"  [attr.item-id]="lloc[105]._id"> 
 							{{lloc[105].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[106].color" > 
+					<td id="divAssignat,106" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[106].color"  [attr.item-id]="lloc[106]._id"> 
 							{{lloc[106].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[107].color" > 
+					<td id="divAssignat,107" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[107].color"  [attr.item-id]="lloc[107]._id"> 
 							{{lloc[107].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[108].color" > 
+					<td id="divAssignat,108" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[108].color"  [attr.item-id]="lloc[108]._id"> 
 							{{lloc[108].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[109].color" > 
+					<td id="divAssignat,109" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[109].color"  [attr.item-id]="lloc[109]._id"> 
 							{{lloc[109].nomCognom}}
 						</div>
 					</td>
 				</tr>
 				<br/>
 				<tr>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[110].color" > 
+					<td id="divAssignat,110" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[110].color"  [attr.item-id]="lloc[110]._id"> 
 							{{lloc[110].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[111].color" > 
+					<td id="divAssignat,111" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[111].color"  [attr.item-id]="lloc[111]._id"> 
 							{{lloc[111].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[68].color" > 
+					<td id="divAssignat,112" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[68].color"  [attr.item-id]="lloc[112]._id"> 
 							{{lloc[112].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[113].color" > 
+					<td id="divAssignat,113" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[113].color"  [attr.item-id]="lloc[113]._id"> 
 							{{lloc[113].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[114].color" > 
+					<td id="divAssignat,114" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[114].color"  [attr.item-id]="lloc[114]._id"> 
 							{{lloc[114].nomCognom}}
 						</div>
 					</td>
 					<td ></td>
 					<td></td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[115].color" > 
+					<td id="divAssignat,115" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[115].color"  [attr.item-id]="lloc[115]._id"> 
 							{{lloc[115].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[116].color" > 
+					<td id="divAssignat,116" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[116].color"  [attr.item-id]="lloc[116]._id"> 
 							{{lloc[116].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[117].color" > 
+					<td id="divAssignat,117" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[117].color"  [attr.item-id]="lloc[117]._id"> 
 							{{lloc[117].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[118].color" > 
+					<td id="divAssignat,118" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[118].color"  [attr.item-id]="lloc[118]._id"> 
 							{{lloc[118].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[119].color" > 
+					<td id="divAssignat,119" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[119].color"  [attr.item-id]="lloc[119]._id"> 
 							{{lloc[119].nomCognom}}
 						</div>
 					</td>
 				</tr>
 				<tr >
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[120].color" > 
+					<td id="divAssignat,120" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[120].color"  [attr.item-id]="lloc[120]._id"> 
 							{{lloc[120].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[121].color" > 
+					<td id="divAssignat,121" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[121].color"  [attr.item-id]="lloc[121]._id"> 
 							{{lloc[121].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[122].color" > 
+					<td id="divAssignat,122" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[122].color"  [attr.item-id]="lloc[122]._id"> 
 							{{lloc[122].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[123].color" > 
+					<td id="divAssignat,123" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[123].color"  [attr.item-id]="lloc[123]._id"> 
 							{{lloc[123].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc" [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[124].color" > 
+					<td id="divAssignat,124" class="blanc" [dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[124].color"  [attr.item-id]="lloc[124]._id"> 
 							{{lloc[124].nomCognom}}
 						</div>
 					</td>
 					<td ></td>
 					<td></td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[125].color" > 
+					<td id="divAssignat,125" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[125].color"  [attr.item-id]="lloc[125]._id"> 
 							{{lloc[125].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[126].color" > 
+					<td id="divAssignat,126" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[126].color"  [attr.item-id]="lloc[126]._id"> 
 							{{lloc[126].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[127].color" > 
+					<td id="divAssignat,127" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[127].color"  [attr.item-id]="lloc[127]._id"> 
 							{{lloc[127].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[128].color" > 
+					<td id="divAssignat,128" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[128].color"  [attr.item-id]="lloc[128]._id"> 
 							{{lloc[128].nomCognom}}
 						</div>
 					</td>
-					<td class="blanc"[dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-						<div [style.background-color]="lloc[129].color" > 
+					<td id="divAssignat,129" class="blanc"[dragula]='"bag-task2"' [dragulaModel]='lloc'>
+						<div [style.background-color]="lloc[129].color"  [attr.item-id]="lloc[129]._id"> 
 							{{lloc[129].nomCognom}}
 						</div>
 					</td>
@@ -768,7 +770,6 @@
 		</mat-card>
 	</div>
 </div>
-
 <router-outlet></router-outlet>
 
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->	
