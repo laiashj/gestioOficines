@@ -83,6 +83,12 @@ public class TecnicApiController {
         return (ArrayList<Tecnic>) llista;
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/tecnics/estat/order/{estat}")
+    public ArrayList<Tecnic> getTecnicByEstatOrderByLloc(@PathVariable String estat) {
+        Iterable<Tecnic> llista = tecnicRepository.findTecnicsByEstatOrderByLloc(estat);
+        return (ArrayList<Tecnic>) llista;
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/tecnics/alta/{baixa}")
     public ArrayList<Tecnic> getTecnicsByDataBaixa(@PathVariable String baixa) {
         Iterable<Tecnic> llista = tecnicRepository.findTecnicsByDataBaixa(baixa);

@@ -13,4 +13,6 @@ public interface CustomRepository {
     ArrayList<Tecnic> findTecnicsByDataBaixa(String alta);
 
     ArrayList<Tecnic> findTecnicsByProjecte(String nomProjecte);
+
+    ArrayList<Tecnic> findTecnicsByEstatOrderByLloc(String estat);
 }
