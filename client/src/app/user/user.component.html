@@ -43,10 +43,8 @@
 			<h3>Tecnics sense lloc</h3>
 
 			<div id="divNoAssignats" class='container' [dragula]='"bag-task2"' [dragulaModel]='filteredOptions'>
-			
-				<div   *ngFor="let item of filteredOptions" [style.background-color]="item.color" matTooltip="item.projecte" [attr.item-id]="item._id" >
-					<ng-template #tipContent>{{item.projecte}}</ng-template>
-					<span [ngbTooltip]="tipContent">{{item.nomCognom}}</span>
+				<div   *ngFor="let item of filteredOptions" [style.background-color]="item.color" matTooltip="{{item.projecte}}" [attr.item-id]="item._id" >
+					<span>{{item.nomCognom}}</span>
 				</div>
 			</div>
 			<br/>

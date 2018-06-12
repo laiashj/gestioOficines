@@ -13,6 +13,7 @@ import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged, ta
 import { TecnicService } from '../shared/tecnic/tecnic.service';
 import {MatTableDataSource} from '@angular/material';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 @Component({
