@@ -55,7 +55,7 @@ export class ModificarProjecteComponent  {
 	/**Mètode del botó modificar */
 	public onSubmit(){
 		this.tecnicService.updateProjecte(this.projecte)
-		.subscribe(() => this.cridarF("Projecte modificat correctament"));
+		.subscribe(() => this.cridarModificar("Projecte modificat correctament"));
 	}
 	/**Mètode del botó eliminar*/
 	public eliminar(){
@@ -64,20 +64,24 @@ export class ModificarProjecteComponent  {
 			dataBaixa: "avui"
 		}
 		this.tecnicService.updateProjecte(this.pro)
-		.subscribe(() => this.cridarF("projecte eliminat correctament"));
+		.subscribe(() => this.cridarEliminar("projecte eliminat correctament"));
 	}
 	/**Mètode que crida les funcions que son necessaries després de modificar projecte*/
-	private cridarF(m:string){
-		this.goBack(m);	
+	private cridarModificar(m:string){
 		this.getTecnicsProjecte();
-		this.modificarTecnics();
+		this.goBack(m);	
+	};
+	
+	private cridarEliminar(m:string){
+		this.getTecnicsProjecteEliminar();
+		this.goBack(m);	
 	};
 	/**Mètode que buida les caselles i mostra l'snackBar*/
 	private goBack(m: string){
 		this.snackBar.open(m, 'X',{
 			duration: 3000
 		});
-		//this.nom = null;
+		this.nom = null;
 		this.descripcio = null;
 		this.color = null;
 	}
@@ -100,6 +104,16 @@ export class ModificarProjecteComponent  {
 		this.tecnicService.getTecnicByProjecte(this.nom).subscribe(
 		data => {
 			this.tecnics= data;
+			this.modificarTecnics();
+			}
+		)
+	};
+	
+	public getTecnicsProjecteEliminar(){
+		this.tecnicService.getTecnicByProjecte(this.nom).subscribe(
+		data => {
+			this.tecnics= data;
+			this.eliminarProjecteTecnics();
 			}
 		)
 	};
@@ -109,6 +123,15 @@ export class ModificarProjecteComponent  {
 		this.tecnics.forEach((t) =>{
 			t.projecte= this.projecte.nom;
 			t.color=this.projecte.color;
+			this.tecnicService.updateTecnic(t)
+			.subscribe(() => this.goBack("tècnics modificats correctament"));
+		}); 
+	}
+	/**Mètode que modifica els tècnics que estan assignats al projecte modificat*/
+	public eliminarProjecteTecnics(){
+		this.tecnics.forEach((t) =>{
+			t.projecte= "";
+			t.color = "";
 			this.tecnicService.updateTecnic(t)
 			.subscribe(() => this.goBack("tècnics modificats correctament"));
 		}); 
